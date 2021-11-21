@@ -1,4 +1,3 @@
-# We ignore the build files
 [Ll]ibrary/
 [Tt]emp/
 [Oo]bj/
@@ -36,13 +35,3 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
-
-.vs
-.DS_Store
-.vsconfig
-# /Temp
-# **/Artifacts
-# **/PackageCache
-# **/ShaderCache
-# **/StateCache
-# /Logs
