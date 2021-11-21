@@ -72,8 +72,8 @@ public class XRCardboardController : MonoBehaviour
         CheckDrag();
 #endif
 
-        attitude = initialRotation * Quaternion.Euler(dragDegrees.x, 0, 0);
-        cameraTransform.rotation = Quaternion.Euler(0, -dragDegrees.y, 0) * attitude;
+        attitude = initialRotation * Quaternion.Euler(Mathf.Clamp(dragDegrees.x, -45f, 45f), 0, 0);
+        cameraTransform.rotation = Quaternion.Euler(0, Mathf.Clamp(-dragDegrees.y, -90f, 90f), 0) * attitude;
     }
 
     public void ResetCamera()
