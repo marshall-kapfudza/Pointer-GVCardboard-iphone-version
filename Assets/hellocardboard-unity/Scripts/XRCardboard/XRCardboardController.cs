@@ -5,6 +5,7 @@ using UnityEngine.XR.Management;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 using UnityEngine.SpatialTracking;
 
 public class XRCardboardController : MonoBehaviour
@@ -22,6 +23,8 @@ public class XRCardboardController : MonoBehaviour
     [SerializeField, Range(.05f, 2)]
     float dragRate = .2f;
 
+    [SerializeField]
+    GameObject GameNode;
     TrackedPoseDriver poseDriver;
     Camera cam;
     Quaternion initialRotation;
@@ -44,6 +47,7 @@ public class XRCardboardController : MonoBehaviour
 
     void Start()
     {
+       
 #if UNITY_EDITOR
         SetObjects(vrActive);
 #else
@@ -64,7 +68,30 @@ public class XRCardboardController : MonoBehaviour
         if (vrActive)
             SimulateVR();
         else
+        {
+
             SimulateDrag();
+            if (Gamepad.all.Count > 0)
+            {
+                if (Gamepad.all[0].leftStick.left.isPressed)
+                {
+                    GameNode.transform.position += Vector3.left * Time.deltaTime * 5f;
+                }
+                if (Gamepad.all[0].leftStick.right.isPressed)
+                {
+                    GameNode.transform.position += Vector3.right * Time.deltaTime * 5f;
+                }
+                if (Gamepad.all[0].leftStick.up.isPressed)
+                {
+                    GameNode.transform.position += Vector3.up * Time.deltaTime * 5f;
+                }
+                if (Gamepad.all[0].leftStick.down.isPressed)
+                {
+                    GameNode.transform.position += Vector3.down * Time.deltaTime * 5f;
+                }
+            }
+        }
+            
 #else
         if (UnityEngine.XR.XRSettings.enabled)
             return;
