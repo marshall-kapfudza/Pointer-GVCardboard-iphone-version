@@ -1,6 +1,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using PCS;
+
+public static class ConveyorSpeed
+{
+    const float STOP = 0f;
+    const float LEFT = 1;
+    const float RIGHT = -1;
+}
 public class ConveyorHandler : MonoBehaviour
 {
     private List<PCSConfig> ConveyorBelt;
@@ -20,22 +27,15 @@ public class ConveyorHandler : MonoBehaviour
                 ConveyorBelt.Add(belt);
         }
     }
-    //Turns all the convoyer on and move nodes to right
-    public void ShiftConveyorRight()
+    //Turns all the convoyer on and move nodes to right left or stop
+    public void ChangeConveyorBeltState(float direction)
     {
         foreach(var belt in ConveyorBelt)
         {
-            belt.SetSpeed(1);
+            belt.SetSpeed(direction);
         }
     }
-    //Turns all the convoyer on and move nodes to left
-    public void ShiftConveyorLeft()
-    {
-        foreach (var belt in ConveyorBelt)
-        {
-            belt.SetSpeed(-1);
-        }
-    }
+
     //shift nodes right and insert the node at the currentNode;
     public void InsertNode()
     {
