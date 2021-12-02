@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class ConveyorHandler : MonoBehaviour
 {
+
+
+    [field: SerializeField]
     public List<NodeDetection> Belts { get; private set; }
 
     private void Awake()
@@ -21,7 +24,7 @@ public class ConveyorHandler : MonoBehaviour
                 Belts.Add(belt);
         }
 
-        ChangeConveyorBeltState(ConveyorDirection.LEFT);
+        
 
         
     }
@@ -33,7 +36,11 @@ public class ConveyorHandler : MonoBehaviour
             belt.ActivateConveyor(direction);
         }
     }
-
+    [ContextMenu("Turn On Conveyor")]
+    public void turnon()
+    {
+        ChangeConveyorBeltState(ConveyorDirection.LEFT);
+    }
     //shift nodes right and insert the node at the currentNode;
     public void InsertNode()
     {

@@ -9,8 +9,9 @@ public static class ConveyorDirection
 }
 public class NodeDetection : MonoBehaviour
 {
-    
+    [field: SerializeField]
     public  GameObject Node { get; private set; }
+    [field: SerializeField]
     public PCSConfig Conveyor { get; private set; }
 
     private void Start()
@@ -23,13 +24,13 @@ public class NodeDetection : MonoBehaviour
         ActivateConveyor(ConveyorDirection.STOP);
     }
 
-    public void ActivateConveyor(float direction)
-    {
-        Conveyor.SetSpeed(direction);
-    }
-
     private void OnTriggerExit()
     {
         Node = null;
+    }
+
+    public void ActivateConveyor(float direction)
+    {
+        Conveyor.SetSpeed(direction);
     }
 }
