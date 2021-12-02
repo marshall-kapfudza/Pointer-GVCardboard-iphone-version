@@ -31,7 +31,7 @@ public class ConveyorHandler : MonoBehaviour
     private void Update()
     {
         if (!isBeltOn) return;
-        if(NodeDetection.ActiveNodes == 2)
+        if(NodeDetection.ActiveNodes == 3)
         {
             ChangeConveyorBeltState(ConveyorDirection.STOP);
         }
@@ -60,6 +60,15 @@ public class ConveyorHandler : MonoBehaviour
     public void DemoStop()
     {
         ChangeConveyorBeltState(ConveyorDirection.STOP);
+    }
+
+    [ContextMenu("Spawner")]
+    public void DemoSpawner()
+    {
+        ChangeConveyorBeltState(ConveyorDirection.LEFT);
+        NodeDetection.ResetActiveNodes();
+        Belts[0].ActivateConveyor(ConveyorDirection.LEFT);
+
     }
     //shift nodes right and insert the node at the currentNode;
     public void InsertNode()
