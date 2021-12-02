@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class ConveyorHandler : MonoBehaviour
 {
-    public List<NodeDetection> ConveyorBelt { get; private set; }
+    public List<NodeDetection> Belts { get; private set; }
 
     private void Awake()
     {
-        ConveyorBelt = new List<NodeDetection>();
+        Belts = new List<NodeDetection>();
     }
 
     private void Start()
@@ -18,7 +18,7 @@ public class ConveyorHandler : MonoBehaviour
         {
             belt = child.GetComponentInChildren<NodeDetection>();
             if(belt != null)
-                ConveyorBelt.Add(belt);
+                Belts.Add(belt);
         }
 
         ChangeConveyorBeltState(ConveyorDirection.LEFT);
@@ -28,7 +28,7 @@ public class ConveyorHandler : MonoBehaviour
     //Turns all the convoyer on and move nodes to right left or stop
     public void ChangeConveyorBeltState(float direction)
     {
-        foreach(var belt in ConveyorBelt)
+        foreach(var belt in Belts)
         {
             belt.ActivateConveyor(direction);
         }
