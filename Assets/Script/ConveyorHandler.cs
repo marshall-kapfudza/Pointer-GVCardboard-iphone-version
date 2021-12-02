@@ -1,29 +1,40 @@
+using System.Collections.Generic;
 using UnityEngine;
-
+using PCS;
 public class ConveyorHandler : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject[] Belts;
-    private int currentNode;
-    public int CurrentNode 
-    { 
-        get { return currentNode; } 
-        set 
-        {
-            if (value >= 0 && value <= 5)
-                currentNode = value;
-        } 
+    private List<PCSConfig> ConveyorBelt;
+
+    private void Awake()
+    {
+        ConveyorBelt = new List<PCSConfig>();
     }
-    
+
+    private void Start()
+    {
+        PCSConfig belt = null;
+        foreach(Transform child in transform)
+        {
+            belt = child.GetComponentInChildren<PCSConfig>();
+            if(belt != null)
+                ConveyorBelt.Add(belt);
+        }
+    }
     //Turns all the convoyer on and move nodes to right
     public void ShiftConveyorRight()
     {
-
+        foreach(var belt in ConveyorBelt)
+        {
+            belt.SetSpeed(1);
+        }
     }
     //Turns all the convoyer on and move nodes to left
     public void ShiftConveyorLeft()
     {
-
+        foreach (var belt in ConveyorBelt)
+        {
+            belt.SetSpeed(-1);
+        }
     }
     //shift nodes right and insert the node at the currentNode;
     public void InsertNode()
