@@ -24,7 +24,12 @@ public class XRCardboardController : MonoBehaviour
     float dragRate = .2f;
 
     [SerializeField]
+<<<<<<< Updated upstream
     GameObject GameNode;
+=======
+    ConveyorHandler MoveConveyerBelts;
+    NodeSpawner createANode;
+>>>>>>> Stashed changes
     TrackedPoseDriver poseDriver;
     Camera cam;
     Quaternion initialRotation;
@@ -47,7 +52,12 @@ public class XRCardboardController : MonoBehaviour
 
     void Start()
     {
+<<<<<<< Updated upstream
        
+=======
+       MoveConveyerBelts = GameObject.FindGameObjectWithTag("Convayor").GetComponent<ConveyorHandler>();
+       createANode = GameObject.FindGameObjectWithTag("NodeSpawner").GetComponent<NodeSpawner>();
+>>>>>>> Stashed changes
 #if UNITY_EDITOR
         SetObjects(vrActive);
 #else
@@ -75,6 +85,7 @@ public class XRCardboardController : MonoBehaviour
             {
                 if (Gamepad.all[0].leftStick.left.isPressed)
                 {
+<<<<<<< Updated upstream
                     GameNode.transform.position += Vector3.left * Time.deltaTime * 5f;
                 }
                 if (Gamepad.all[0].leftStick.right.isPressed)
@@ -88,6 +99,17 @@ public class XRCardboardController : MonoBehaviour
                 if (Gamepad.all[0].leftStick.down.isPressed)
                 {
                     GameNode.transform.position += Vector3.down * Time.deltaTime * 5f;
+=======
+                   MoveConveyerBelts.ChangeConveyorBeltState(ConveyorDirection.LEFT); 
+                }
+                if (Gamepad.all[0].leftStick.right.isPressed)
+                {
+                    MoveConveyerBelts.ChangeConveyorBeltState(ConveyorDirection.RIGHT); 
+                }
+                if (Gamepad.all[0].dpad.left.isPressed)
+                {
+                    createANode.CreateNewNode();
+>>>>>>> Stashed changes
                 }
             }
         }
