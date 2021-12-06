@@ -6,11 +6,9 @@ public class NewNode : MonoBehaviour
 {
     public GameObject pointer;
 
-    [ContextMenu("turn pointer")]
+    [ContextMenu("Turn Left Pointer")]
     public void demoturnon()
     {
         pointer.SetActive(true);
     }
-
-
 }
