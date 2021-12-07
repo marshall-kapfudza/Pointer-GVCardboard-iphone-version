@@ -31,7 +31,7 @@ public class ConveyorHandler : MonoBehaviour
     private void Update()
     {
         if (!isBeltOn) return;
-        if(NodeDetection.ActiveNodes == 3)
+        if(NodeDetection.ActiveNodes == 6)//
         {
             ChangeConveyorBeltState(ConveyorDirection.STOP);
         }
