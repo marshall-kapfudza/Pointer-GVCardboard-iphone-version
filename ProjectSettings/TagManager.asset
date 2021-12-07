@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Node
   - Convayor
+  - NodeSpawner
   layers:
   - Default
   - TransparentFX
