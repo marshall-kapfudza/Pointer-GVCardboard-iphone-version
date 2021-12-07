@@ -25,7 +25,12 @@ public class XRCardboardController : MonoBehaviour
 
     [SerializeField]
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     GameObject GameNode;
+=======
+    ConveyorHandler MoveConveyerBelts;
+    NodeSpawner createANode;
+>>>>>>> Stashed changes
 =======
     ConveyorHandler MoveConveyerBelts;
     NodeSpawner createANode;
@@ -53,10 +58,15 @@ public class XRCardboardController : MonoBehaviour
     void Start()
     {
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
        
 =======
        MoveConveyerBelts = GameObject.FindGameObjectWithTag("Convayor").GetComponent<ConveyorHandler>();
        createANode = GameObject.FindGameObjectWithTag("NodeSpawner").GetComponent<NodeSpawner>();
+>>>>>>> Stashed changes
+=======
+        MoveConveyerBelts = GameObject.FindGameObjectWithTag("Convayor").GetComponent<ConveyorHandler>();
+        createANode = GameObject.FindGameObjectWithTag("NodeSpawner").GetComponent<NodeSpawner>();
 >>>>>>> Stashed changes
 #if UNITY_EDITOR
         SetObjects(vrActive);
@@ -86,6 +96,7 @@ public class XRCardboardController : MonoBehaviour
                 if (Gamepad.all[0].leftStick.left.isPressed)
                 {
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                     GameNode.transform.position += Vector3.left * Time.deltaTime * 5f;
                 }
                 if (Gamepad.all[0].leftStick.right.isPressed)
@@ -105,15 +116,29 @@ public class XRCardboardController : MonoBehaviour
                 if (Gamepad.all[0].leftStick.right.isPressed)
                 {
                     MoveConveyerBelts.ChangeConveyorBeltState(ConveyorDirection.RIGHT); 
+=======
+                    MoveConveyerBelts.ChangeConveyorBeltState(ConveyorDirection.LEFT);
+                }
+                if (Gamepad.all[0].leftStick.right.isPressed)
+                {
+                    MoveConveyerBelts.ChangeConveyorBeltState(ConveyorDirection.RIGHT);
+>>>>>>> Stashed changes
                 }
                 if (Gamepad.all[0].dpad.left.isPressed)
                 {
                     createANode.CreateNewNode();
+<<<<<<< Updated upstream
 >>>>>>> Stashed changes
                 }
             }
         }
             
+=======
+                }
+            }
+        }
+
+>>>>>>> Stashed changes
 #else
         if (UnityEngine.XR.XRSettings.enabled)
             return;

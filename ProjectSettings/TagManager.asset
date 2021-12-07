@@ -10,6 +10,9 @@ TagManager:
   - Node
   - Convayor
   - NodeSpawner
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
   layers:
   - Default
