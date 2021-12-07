@@ -41,7 +41,7 @@ public class ObjectPool : MonoBehaviour
         }
     }
 
-    public GameObject SpawnFromPool(string tag, Vector3 postiion, Quaternion rotation)
+    public GameObject SpawnFromPool(string tag, Vector3 position, Quaternion rotation)
     {
         if (!poolDictionary.ContainsKey(tag))
         {
@@ -54,7 +54,7 @@ public class ObjectPool : MonoBehaviour
 
         spawnObject.SetActive(true);
         spawnObject.transform.position = position;
-        spawnbObject.transform.rotation = rotation;
+        spawnObject.transform.rotation = rotation;
 
         poolDictionary[tag].Enqueue(spawnObject);
 
