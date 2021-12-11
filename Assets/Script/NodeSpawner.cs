@@ -6,40 +6,33 @@ using UnityEngine;
  */
 public class NodeSpawner : MonoBehaviour
 {
-    public GameObject nodePrefab;
-    public bool isSpawning;
-    public bool canSpawn;
-
-    ConveyorHandler movement;
-    public static int TotalNode { get; private set; }
+    [SerializeField]
+    private GameObject nodePrefab;
+    private CoroutineSpawnNodeManager _spawnManager;
+    private ConveyorHandler _ConveyorBelt;
+    private bool _isSpawning;
     void Start()
     {
-        movement = GameObject.FindGameObjectWithTag("Convayor").GetComponent<ConveyorHandler>();
-        TotalNode = 0;
+        _ConveyorBelt = GameObject.FindGameObjectWithTag("Convayor").GetComponent<ConveyorHandler>();
+        _spawnManager = GetComponent<CoroutineSpawnNodeManager>();
+        _isSpawning = false;
     }
-
+    private void OnTriggerEnter(Collider other)
+    {
+        _ConveyorBelt.Belts[0].ActivateConveyor(ConveyorDirection.LEFT);
+    }
     private void OnTriggerExit(Collider other)
     {
-        isSpawning = false;
-    }
-    private void Update()
-    {
-        if (canSpawn && movement.Belts[0].Node == null)
-        {
-            Instantiate(nodePrefab, transform.position, Quaternion.identity);
-            canSpawn = false;
-        }
+        StopCoroutine(_spawnManager.NodeCoroutine);
+        _isSpawning = false;
     }
 
     public void CreateNewNode()
     {
-        if (isSpawning) return;
-
-        movement.ChangeConveyorBeltState(ConveyorDirection.LEFT);
-        TotalNode++;
-        isSpawning = true;
-        canSpawn = true;
-
+        if (_isSpawning) return;
+        _ConveyorBelt.ChangeConveyorBeltState(ConveyorDirection.LEFT);
+        _spawnManager.SpawnNode(transform.position, transform.rotation);
+        _isSpawning = true;
     }
 
 

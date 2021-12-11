@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ObjectPool : MonoBehaviour
 {
+    public static int ActivePool { get; private set; }
     [System.Serializable]
     public class Pool
     {
@@ -57,7 +58,7 @@ public class ObjectPool : MonoBehaviour
         spawnObject.transform.rotation = rotation;
 
         poolDictionary[tag].Enqueue(spawnObject);
-
+        ActivePool++;
         return spawnObject;
     }
 
