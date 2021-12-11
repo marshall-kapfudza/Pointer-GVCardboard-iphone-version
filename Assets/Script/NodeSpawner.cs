@@ -9,17 +9,20 @@ public class NodeSpawner : MonoBehaviour
     [SerializeField]
     private GameObject nodePrefab;
     private CoroutineSpawnNodeManager _spawnManager;
-    private ConveyorHandler _ConveyorBelt;
+    private ConveyorHandler _conveyorBelt;
     private bool _isSpawning;
+    private NodeDetection _firstBelt;
     void Start()
     {
-        _ConveyorBelt = GameObject.FindGameObjectWithTag("Convayor").GetComponent<ConveyorHandler>();
+        _conveyorBelt = GameObject.FindGameObjectWithTag("Convayor").GetComponent<ConveyorHandler>();
         _spawnManager = GetComponent<CoroutineSpawnNodeManager>();
+        _firstBelt = _conveyorBelt.Belts[0];
         _isSpawning = false;
     }
     private void OnTriggerEnter(Collider other)
     {
-        _ConveyorBelt.Belts[0].ActivateConveyor(ConveyorDirection.LEFT);
+        
+        _firstBelt.ActivateConveyor(ConveyorDirection.LEFT);
     }
     private void OnTriggerExit(Collider other)
     {
@@ -30,7 +33,7 @@ public class NodeSpawner : MonoBehaviour
     {
         if (_isSpawning || NodeDetection.NodesOnConveyor != ObjectPool.ActivePool) return;
         NodeDetection.ResetActiveNodes();
-        _ConveyorBelt.ChangeConveyorBeltState(ConveyorDirection.LEFT);
+        _conveyorBelt.ChangeConveyorBeltState(ConveyorDirection.LEFT);
         _spawnManager.SpawnNode(transform.position, transform.rotation);
         _isSpawning = true;
     }
