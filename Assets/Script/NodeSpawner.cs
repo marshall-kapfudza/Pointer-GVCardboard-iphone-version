@@ -29,7 +29,7 @@ public class NodeSpawner : MonoBehaviour
 
     public void CreateNewNode()
     {
-        if (_isSpawning) return;
+        if (_isSpawning || NodeDetection.NodesOnConveyor != ObjectPool.ActivePool) return;
         _ConveyorBelt.ChangeConveyorBeltState(ConveyorDirection.LEFT);
         _spawnManager.SpawnNode(transform.position, transform.rotation);
         _isSpawning = true;

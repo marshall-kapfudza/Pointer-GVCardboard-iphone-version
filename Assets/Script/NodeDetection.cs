@@ -7,7 +7,7 @@ public class NodeDetection : MonoBehaviour
     public  GameObject Node { get; private set; }
     [field: SerializeField]
     public PCSConfig Conveyor { get; private set; }
-    
+    [field: SerializeField]
     public static int NodesOnConveyor { get; private set; }
     
     private void Start()
