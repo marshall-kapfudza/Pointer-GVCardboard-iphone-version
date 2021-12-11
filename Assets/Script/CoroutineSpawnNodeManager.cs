@@ -3,10 +3,16 @@ using UnityEngine;
 
 public class CoroutineSpawnNodeManager : MonoBehaviour
 {
-    public Coroutine NodeCoroutine { get; set; }
+    public Coroutine NodeCoroutine { get; private set; }
+    private GameObject _Node;
     private void Start()
     {
+        _Node = null;
         NodeCoroutine = null;
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        _Node = null;
     }
     public void SpawnNode(Vector3 transform, Quaternion rotation)
     {
@@ -14,12 +20,10 @@ public class CoroutineSpawnNodeManager : MonoBehaviour
     }
     private IEnumerator GetNodeFromPool(Vector3 transform, Quaternion rotation)
     {
-        bool spawning = true;
-        while (spawning)
+        while (_Node == null)
         {
             yield return new WaitForSeconds(1f);
-            ObjectPool.Instance.SpawnFromPool("Node", transform, rotation).GetComponent<Node>();
-            spawning = false;
+            _Node = ObjectPool.Instance.SpawnFromPool("Node", transform, rotation);
         }
     }
 
