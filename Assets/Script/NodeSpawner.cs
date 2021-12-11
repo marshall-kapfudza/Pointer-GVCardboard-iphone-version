@@ -23,13 +23,13 @@ public class NodeSpawner : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
-        StopCoroutine(_spawnManager.NodeCoroutine);
         _isSpawning = false;
     }
 
     public void CreateNewNode()
     {
         if (_isSpawning || NodeDetection.NodesOnConveyor != ObjectPool.ActivePool) return;
+        NodeDetection.ResetActiveNodes();
         _ConveyorBelt.ChangeConveyorBeltState(ConveyorDirection.LEFT);
         _spawnManager.SpawnNode(transform.position, transform.rotation);
         _isSpawning = true;

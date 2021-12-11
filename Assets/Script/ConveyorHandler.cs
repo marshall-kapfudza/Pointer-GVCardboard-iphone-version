@@ -52,7 +52,6 @@ public class ConveyorHandler : MonoBehaviour
     public void ChangeConveyorBeltState(float direction)
     {
         _isBeltOn = true;
-        NodeDetection.ResetActiveNodes();
         foreach(var belt in Belts)
         {
             belt.ActivateConveyor(direction);

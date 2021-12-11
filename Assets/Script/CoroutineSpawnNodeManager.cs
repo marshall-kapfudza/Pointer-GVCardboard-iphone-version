@@ -12,6 +12,7 @@ public class CoroutineSpawnNodeManager : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
+        StopCoroutine(NodeCoroutine);
         _Node = null;
     }
     public void SpawnNode(Vector3 transform, Quaternion rotation)

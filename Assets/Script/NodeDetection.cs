@@ -12,7 +12,6 @@ public class NodeDetection : MonoBehaviour
     
     private void Start()
     {
-        NodesOnConveyor = 0;
         Conveyor = transform.parent.GetComponentInChildren<PCSConfig>();
     }
     private void OnTriggerEnter(Collider other)
