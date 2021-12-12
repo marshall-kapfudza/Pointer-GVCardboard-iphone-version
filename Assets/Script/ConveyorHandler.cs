@@ -1,14 +1,13 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Pool;
 
 
 public class ConveyorHandler : MonoBehaviour
 {
-
-
-    [field: SerializeField]
     public List<NodeDetection> Belts { get; private set; }
-    private bool isBeltOn;
+    private bool _isBeltOn;
     private void Awake()
     {
         Belts = new List<NodeDetection>();
@@ -16,12 +15,12 @@ public class ConveyorHandler : MonoBehaviour
 
     private void Start()
     {
-        isBeltOn = false;
-        NodeDetection belt = null;
+        _isBeltOn = false;
+        NodeDetection belt;
         foreach(Transform child in transform)
         {
             belt = child.GetComponentInChildren<NodeDetection>();
-            if(belt != null)
+            if (belt != null)
                 Belts.Add(belt);
         }
 
@@ -30,51 +29,42 @@ public class ConveyorHandler : MonoBehaviour
     }
     private void Update()
     {
-        if (!isBeltOn) return;
-        if(NodeDetection.ActiveNodes == NodeSpawner.TotalNode)//
+        if (!_isBeltOn) return;
+        if(NodeDetection.NodesOnConveyor == ObjectPool.ActivePool)
         {
             ChangeConveyorBeltState(ConveyorDirection.STOP);
         }
     }
+
+    public bool Empty()
+    {
+        bool isConveyorBeltEmpty = true;
+
+        foreach(NodeDetection belt in Belts)
+        {
+            if (belt.Node != null)
+                return !isConveyorBeltEmpty;
+        }
+        return isConveyorBeltEmpty;
+    }
+
     //Turns all the convoyer on and move nodes to right left or stop
     public void ChangeConveyorBeltState(float direction)
     {
-        isBeltOn = true;
-        NodeDetection.ResetActiveNodes();
+        _isBeltOn = true;
         foreach(var belt in Belts)
         {
             belt.ActivateConveyor(direction);
         }
     }
-    [ContextMenu("Turn On Conveyor to left")]
-    public void Demoturnleft()
-    {
-        ChangeConveyorBeltState(ConveyorDirection.LEFT);
-    }
-    [ContextMenu("Turn On Conveyor to right")]
-    public void Demoturnright()
-    {
-        ChangeConveyorBeltState(ConveyorDirection.RIGHT);
-    }
-    [ContextMenu("Stop Conveyor")]
-    public void DemoStop()
-    {
-        ChangeConveyorBeltState(ConveyorDirection.STOP);
-    }
-
-    [ContextMenu("Spawner")]
-    public void DemoSpawner()
-    {
-        ChangeConveyorBeltState(ConveyorDirection.LEFT);
-        NodeDetection.ResetActiveNodes();
-        Belts[0].ActivateConveyor(ConveyorDirection.LEFT);
-
-    }
+   
+    [ContextMenu("Insert Node")]
     //shift nodes right and insert the node at the currentNode;
     public void InsertNode()
     {
 
     }
+
     //remove node at current node and shift nodes to the left
     public void RemoveNode()
     {
