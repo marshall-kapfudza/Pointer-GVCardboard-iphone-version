@@ -23,9 +23,7 @@ public class XRCardboardController : MonoBehaviour
     [SerializeField, Range(.05f, 2)]
     float dragRate = .2f;
 
-    [SerializeField]
-    ConveyorHandler MoveConveyerBelts;
-    NodeSpawner createANode;
+    ControllerInputHandler controllerHandler;
     TrackedPoseDriver poseDriver;
     Camera cam;
     Quaternion initialRotation;
@@ -40,6 +38,7 @@ public class XRCardboardController : MonoBehaviour
 
     void Awake()
     {
+        controllerHandler = gameObject.AddComponent<ControllerInputHandler>() as ControllerInputHandler;
         cam = cameraTransform.GetComponent<Camera>();
         poseDriver = cameraTransform.GetComponent<TrackedPoseDriver>();
         defaultFov = cam.fieldOfView;
@@ -48,8 +47,7 @@ public class XRCardboardController : MonoBehaviour
 
     void Start()
     {
-        MoveConveyerBelts = GameObject.FindGameObjectWithTag("Convayor").GetComponent<ConveyorHandler>();
-        createANode = GameObject.FindGameObjectWithTag("NodeSpawner").GetComponent<NodeSpawner>();
+        
 #if UNITY_EDITOR
         SetObjects(vrActive);
 #else
@@ -73,23 +71,9 @@ public class XRCardboardController : MonoBehaviour
         {
 
             SimulateDrag();
-            if (Gamepad.all.Count > 0)
-            {
-                if (Gamepad.all[0].leftStick.left.isPressed)
-                {
-                    MoveConveyerBelts.ChangeConveyorBeltState(ConveyorDirection.LEFT);
-                }
-                if (Gamepad.all[0].leftStick.right.isPressed)
-                {
-                    MoveConveyerBelts.ChangeConveyorBeltState(ConveyorDirection.RIGHT);
-                }
-                if (Gamepad.all[0].dpad.left.isPressed)
-                {
-                    createANode.CreateNewNode();
-                }
-            }
+            
         }
-
+        controllerHandler.ExcuteInput(Gamepad.current);
 #else
         if (UnityEngine.XR.XRSettings.enabled)
             return;
