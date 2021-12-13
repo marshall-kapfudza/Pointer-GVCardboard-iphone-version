@@ -77,10 +77,12 @@ public class XRCardboardController : MonoBehaviour
             {
                 if (Gamepad.all[0].leftStick.left.isPressed)
                 {
+                    NodeDetection.ResetActiveNodes();
                     MoveConveyerBelts.ChangeConveyorBeltState(ConveyorDirection.LEFT);
                 }
                 if (Gamepad.all[0].leftStick.right.isPressed)
                 {
+                    NodeDetection.ResetActiveNodes();
                     MoveConveyerBelts.ChangeConveyorBeltState(ConveyorDirection.RIGHT);
                 }
                 if (Gamepad.all[0].dpad.left.isPressed)
