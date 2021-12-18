@@ -1,14 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-
-[RequireComponent(typeof(LineRenderer))]
-[ExecuteAlways]
 public class CableStatic : MonoBehaviour
 {
 
-	LineRenderer line;
+	private LineRenderer line;
 
 	// The Start of the cable will be the transform of the GameObject that has this component.
 	// The Transform of the Gameobject where the End of the cable is. This needs to be assigned in the inspector.
@@ -24,20 +19,20 @@ public class CableStatic : MonoBehaviour
 	private int pointsInLineRenderer;
 	private Vector3 vectorFromStartToEnd;
 	private Vector3 sagDirection;
-
-
-
-	void Start()
+    private void Start()
     {
-        line = GetComponent<LineRenderer>();
+		line = GetComponent<LineRenderer>();
+		EndPointPrefab = null;
     }
-    private void Update()
+    public bool HasEndPoint
     {
-		if (EndPointPrefab == null) return;
-		DrawToEndPoint();
+		get { return EndPointPrefab != null; }
     }
-
-    public void DrawToEndPoint()
+	public void SetEndPoint(GameObject EndPoint)
+    {
+		EndPointPrefab = EndPoint;
+    }
+    public void DrawCable()
 	{
 		EndPointTransform = EndPointPrefab.transform;
 		// Get direction Vector.

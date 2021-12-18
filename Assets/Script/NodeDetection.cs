@@ -4,7 +4,7 @@ using PCS;
 public class NodeDetection : MonoBehaviour
 {
     [field: SerializeField]
-    public  GameObject Node { get; private set; }
+    public  NodeController Node { get; private set; }
     [field: SerializeField]
     public PCSConfig Conveyor { get; private set; }
     [field: SerializeField]
@@ -16,8 +16,9 @@ public class NodeDetection : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
+        if (other.gameObject.tag != "Node") return;
         NodesOnConveyor++;
-        Node = other.gameObject;
+        Node = other.gameObject.GetComponent<NodeController>();
         ActivateConveyor(ConveyorDirection.STOP);
     }
 

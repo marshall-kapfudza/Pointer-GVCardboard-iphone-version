@@ -11,14 +11,38 @@ public class NodeController : MonoBehaviour
     private Material Outline;
     private Renderer _myRenderer;
     private bool _isSelected;
-    private void Awake()
-    {
-        _myRenderer = GetComponent<Renderer>();
-    }
+
+
+    [field: SerializeField]
+    public CableStatic CableFront { get; private set; }
+    [field: SerializeField]
+    public GameObject ConnectionEndPoint { get; private set; }
 
     private void Start()
     {
         _isSelected = false;
+        _myRenderer = GetComponent<Renderer>();
+        ConnectionEndPoint = transform.GetChild(1).gameObject;
+        CableFront = transform.GetChild(0).gameObject.GetComponent<CableStatic>();
+        CableFront.gameObject.SetActive(false);
+    }
+    private void Update()
+    {
+        if (!CableFront.HasEndPoint) return;
+        Debug.Log("Drawing endpoint");
+        CableFront.DrawCable();
+    }
+    public void ConnectCable(NodeController Other)
+    {
+        if (CableFront.HasEndPoint) return;
+        CableFront.SetEndPoint(Other.ConnectionEndPoint);
+        CableFront.gameObject.SetActive(true);
+    }
+
+    public void RemoveCable()
+    {
+        CableFront.SetEndPoint(null);
+        CableFront.gameObject.SetActive(false);
     }
     public void OnClick()
     {
