@@ -1,0 +1,98 @@
+
+Pseudo Code Instructions for Pointer Application
+Task 1: Create a Linked List
+The purpose of this task is to teach the user how a linked list is creating in relation to pointers. These are the steps necessary to create a linked list:
+1.	Create a node. This node with have a rope attached to it, which represents the “next pointer” of that node.
+2.	Create a new pointer.
+3.	Connect this pointer with spawned node as well. This will be the “head pointer” which always points towards the first node of a linked list.
+4.	Create another node.
+5.	Connect the “next pointer” of the previous node to this newly spawned node.
+6.	Create another node.
+7.	Connect the “next pointer” of the previous node to this node.
+8.	Keep repeating this process to add as many nodes as you’d like to this linked list. 
+Note: It is the next pointer which tells the computer where the next item in the linked list is.
+C++ Code for these instructions:
+This part illustrates the structure of a node in a singly linked list. Every node that is created will have some data and a next pointer.
+class Node {
+public:
+    int data;
+    Node* next;
+};
+
+This code represents how nodes are created and put in a linked list:
+int main()
+{
+    Node* head = NULL;
+    Node* second = NULL;
+    Node* third = NULL;
+ 
+    // allocate 3 nodes in the heap
+    head = new Node();
+    second = new Node();
+    third = new Node();
+ 
+    /* Three blocks have been allocated dynamically.
+    head->data = 1; // assign data in first node
+    head->next = second; // Link first node with
+    // the second node
+ 
+    // assign data to second node
+    second->data = 2;
+ 
+    // Link second node with the third node
+    second->next = third;
+ 
+    third->data = 3; // assign data to third node
+    third->next = NULL;
+ 
+    /* data has been assigned to the data part of the third
+    block (block pointed by third). And next pointer
+    of the third block is made NULL to indicate
+    that the linked list is terminated here. 
+    return 0;
+}
+
+Task 2: Insert a Node in the Middle of the Linked List
+
+The purpose of this task is to teach the user how pointers facilitate the insertion of a node into a linked list:
+A linked list with a few nodes must already exist in the environment for this function.
+We must also be told where in the linked list we must add the new node. We must either be given the index, or the data inside the node. For the purpose of this test, we will do so using the data inside these nodes. Assume you have to insert a node after the node that contains the number 3.
+
+1.	First, create a new node.
+2.	Create a new pointer called newNode to point towards this node.
+3.	Create a new pointer. This will be called the “current pointer”
+4.	Have the new pointer point towards the same node the “head pointer” is pointing towards.
+5.	According to the code, this pointer should keep traversing the list and changing the address stored in it until it either reaches the last node (charecterised by the current -> next != NULL), or until it reaches the node that stores “3” in it as data (characterized by current - > info != 3)
+6.	Change the node the current pointer is pointing towards, and move it up by one node.
+7.	Repeat this process until you reach the node that contains “3.”
+8.	Now, select the “next pointer” of the new node we created, and make it point towards the node that is supposed to come after the node we stopped our current pointer at.
+9.	Now select the next pointer of the node we stopped our current pointer at, and make it point toward the new node. We have now successfully inserted this node into the program.
+This is the code that the user is supposed to trace in order to insert the node
+void LList <T> :: insertMid(T item)
+{
+    // create the node and pointer
+
+    Node<T> *newNode = new Node(item);
+
+    // In the case of empty linked list
+    if (head == NULL){
+  head = newNode;
+    }
+
+    else {
+        // create a new current pointer and point it towards head
+        Node *current = head;
+ 
+
+        while (current->next != NULL && current->info != 3) {
+ 
+            // move current pointer to next node
+            current = current->next;
+        }
+ 
+        // insert the 'newNode' and adjust the
+        // required links
+        newNode->next = current->next;
+        current->next = newNode;
+    }
+}
