@@ -606,7 +606,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pools:
   - tag: Node
-    prefab: {fileID: 8669298083867166684, guid: b5c804dcc1488de4b966fb95d497ba07, type: 3}
+    prefab: {fileID: 4923320569643727486, guid: b5c804dcc1488de4b966fb95d497ba07, type: 3}
     size: 7
 --- !u!4 &23710577
 Transform:
