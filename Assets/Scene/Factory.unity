@@ -6734,7 +6734,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cfbf2111b525e94c9510373c5de2ff7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentNode: 0
 --- !u!43 &440420058
 Mesh:
   m_ObjectHideFlags: 0
@@ -17030,7 +17029,7 @@ Transform:
   - {fileID: 1538885745}
   - {fileID: 2084624597}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1253557987
 PrefabInstance:
@@ -20324,7 +20323,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4506603279125416649, guid: a24a1ab7f3b926a47b003a6260ffd84d, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4506603279125416649, guid: a24a1ab7f3b926a47b003a6260ffd84d, type: 3}
       propertyPath: m_LocalPosition.x
