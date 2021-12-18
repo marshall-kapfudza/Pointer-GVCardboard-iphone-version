@@ -1,28 +1,21 @@
-Unity Editor version:    2021.2.5f1 (4ec9a5e799f5)
-Branch:                  2021.2/staging
-Build type:              Release
-Batch mode:              YES
-macOS version:           Version 11.6 (Build 20G165)
-Darwin version:          20.6.0
-Architecture:            x86_64
-Running under Rosetta:   NO
-Available memory:        8192 MB
 Using pre-set license
-Pro License: NO
+Built from '2021.2/staging' branch; Version is '2021.2.5f1 (4ec9a5e799f5) revision 5163429'; Using compiler version '192829333'; Build Type 'Release'
+OS: 'Windows 10  (10.0.19044) 64bit Core' Language: 'en' Physical Memory: 16309 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
 
 COMMAND LINE ARGUMENTS:
-/Applications/Unity/Hub/Editor/2021.2.5f1/Unity.app/Contents/MacOS/Unity
+C:\Program Files\Unity\Hub\Editor\2021.2.5f1\Editor\Unity.exe
 -adb2
 -batchMode
 -noUpm
 -name
 AssetImportWorker0
 -projectPath
-/Users/boundy/Desktop/College/5 - FALL 2021/CSC 350H/VR Project/Pointer-GVCardboard-iphone-version/Pointer-GVCardboard-iphone-version
+D:/Git/Pointer-GVCardboard-iphone-version
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-65442
+60243
 Successfully changed project path to: D:/Git/Pointer-GVCardboard-iphone-version
 D:/Git/Pointer-GVCardboard-iphone-version
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
@@ -54,103 +47,104 @@ D:/Git/Pointer-GVCardboard-iphone-version
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Refreshing native plugins compatible for Editor in 30.09 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 30.06 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2021.2.5f1 (4ec9a5e799f5)
-[Subsystems] Discovering subsystems at path /Applications/Unity/Hub/Editor/2021.2.5f1/Unity.app/Contents/Resources/UnitySubsystems
-[Subsystems] Discovering subsystems at path /Users/boundy/Desktop/College/5 - FALL 2021/CSC 350H/VR Project/Pointer-GVCardboard-iphone-version/Pointer-GVCardboard-iphone-version/Assets
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2021.2.5f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path D:/Git/Pointer-GVCardboard-iphone-version/Assets
 GfxDevice: creating device client; threaded=0; jobified=0
-Color LCD preferred device: Intel(R) Iris(TM) Plus Graphics 655 (low power)
-Metal devices available: 1
-0: Intel(R) Iris(TM) Plus Graphics 655 (low power)
-Using device Intel(R) Iris(TM) Plus Graphics 655 (low power)
-Initializing Metal device caps: Intel(R) Iris(TM) Plus Graphics 655
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 3070 Ti (ID=0x2482)
+    Vendor:   NVIDIA
+    VRAM:     8041 MB
+    Driver:   30.0.14.9676
 Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2021.2.5f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2021.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2021.2.5f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56284
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56780
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.2.5f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.005601 seconds.
+Registered in 0.005791 seconds.
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 30.98 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 29.18 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.417 seconds
+- Completed reload, in  0.432 seconds
 Domain Reload Profiling:
-	ReloadAssembly (417ms)
-		BeginReloadAssembly (53ms)
+	ReloadAssembly (432ms)
+		BeginReloadAssembly (55ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (0ms)
-		EndReloadAssembly (306ms)
-			LoadAssemblies (51ms)
+			CreateAndSetChildDomain (1ms)
+		EndReloadAssembly (319ms)
+			LoadAssemblies (53ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (71ms)
+			SetupTypeCache (66ms)
 			ReleaseScriptCaches (0ms)
 			RebuildScriptCaches (18ms)
-			SetupLoadedEditorAssemblies (180ms)
+			SetupLoadedEditorAssemblies (191ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (11ms)
+				InitializePlatformSupportModulesInManaged (12ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (31ms)
+				RefreshPlugins (29ms)
 				BeforeProcessingInitializeOnLoad (1ms)
-				ProcessInitializeOnLoadAttributes (104ms)
-				ProcessInitializeOnLoadMethodAttributes (33ms)
+				ProcessInitializeOnLoadAttributes (113ms)
+				ProcessInitializeOnLoadMethodAttributes (36ms)
 				AfterProcessingInitializeOnLoad (0ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.002080 seconds.
+Registered in 0.001963 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 28.82 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 29.18 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Package Manager log level set to [2]
 Mono: successfully reloaded assembly
-- Completed reload, in  0.871 seconds
+- Completed reload, in  0.939 seconds
 Domain Reload Profiling:
-	ReloadAssembly (872ms)
-		BeginReloadAssembly (130ms)
+	ReloadAssembly (940ms)
+		BeginReloadAssembly (144ms)
 			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (4ms)
+			DisableScriptedObjects (6ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (15ms)
-		EndReloadAssembly (668ms)
-			LoadAssemblies (56ms)
+			CreateAndSetChildDomain (16ms)
+		EndReloadAssembly (721ms)
+			LoadAssemblies (58ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (127ms)
+			SetupTypeCache (131ms)
 			ReleaseScriptCaches (0ms)
-			RebuildScriptCaches (30ms)
-			SetupLoadedEditorAssemblies (384ms)
+			RebuildScriptCaches (32ms)
+			SetupLoadedEditorAssemblies (421ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (8ms)
+				InitializePlatformSupportModulesInManaged (11ms)
 				SetLoadedEditorAssemblies (0ms)
 				RefreshPlugins (29ms)
-				BeforeProcessingInitializeOnLoad (46ms)
-				ProcessInitializeOnLoadAttributes (275ms)
-				ProcessInitializeOnLoadMethodAttributes (19ms)
+				BeforeProcessingInitializeOnLoad (48ms)
+				ProcessInitializeOnLoadAttributes (308ms)
+				ProcessInitializeOnLoadMethodAttributes (18ms)
 				AfterProcessingInitializeOnLoad (7ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (5ms)
+			AwakeInstancesAfterBackupRestoration (4ms)
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
 Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
-Refreshing native plugins compatible for Editor in 0.49 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 0.53 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 2403 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 91 unused Assets / (97.0 KB). Loaded Objects now: 2864.
-Memory consumption went from 106.2 MB to 106.1 MB.
-Total: 3.056900 ms (FindLiveObjects: 0.169400 ms CreateObjectMapping: 0.114500 ms MarkObjects: 2.638700 ms  DeleteObjects: 0.133800 ms)
+Unloading 2411 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 91 unused Assets / (103.9 KB). Loaded Objects now: 2885.
+Memory consumption went from 119.0 MB to 118.9 MB.
+Total: 2.921000 ms (FindLiveObjects: 0.167400 ms CreateObjectMapping: 0.097700 ms MarkObjects: 2.516400 ms  DeleteObjects: 0.138800 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
@@ -162,3 +156,244 @@ AssetImportParameters requested are different than current active one (requested
   custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
   custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 84984.770942 seconds.
+  path: Assets/Real-Time Procedural Cable Simple/ExampleScene/Example_Scene.unity
+  artifactKey: Guid(d8dac6bcb8025a344b074f8b2a89c625) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Real-Time Procedural Cable Simple/ExampleScene/Example_Scene.unity using Guid(d8dac6bcb8025a344b074f8b2a89c625) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4ef9dd7970d5855482d154288c95e4e0') in 0.006416 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 58.183034 seconds.
+  path: Assets/Real-Time Procedural Cable Simple/Textures/Chain.png
+  artifactKey: Guid(a1ed3070d036c9c4e9352231bf000511) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Real-Time Procedural Cable Simple/Textures/Chain.png using Guid(a1ed3070d036c9c4e9352231bf000511) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fb0ee663db1be9e6a8f0dd630c332b5a') in 0.036691 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 7.918274 seconds.
+  path: Assets/Scene/Factory.unity
+  artifactKey: Guid(d289334f4c22b394cb0deca156e14975) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scene/Factory.unity using Guid(d289334f4c22b394cb0deca156e14975) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '330f34125c7e68e9fc0fb5ed61d82529') in 0.005711 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 7.159800 seconds.
+  path: Assets/AssetStorePrefabs/PCS/Styles/Belt/Models/endCap.fbx
+  artifactKey: Guid(6daa2dcca26ac2844877bfcfcbf3d59b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AssetStorePrefabs/PCS/Styles/Belt/Models/endCap.fbx using Guid(6daa2dcca26ac2844877bfcfcbf3d59b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fffa352d9a0ce4ad5c8896870d97cc85') in 0.088834 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/AssetStorePrefabs/PCS/Styles/Belt/Materials/RailGrey.mat
+  artifactKey: Guid(bf48e84243fd5144bac5157911fda1fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AssetStorePrefabs/PCS/Styles/Belt/Materials/RailGrey.mat using Guid(bf48e84243fd5144bac5157911fda1fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6c9fb31ddd96b0c8fb0d8e3e243d63fb') in 0.091707 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/AssetStorePrefabs/PCS/Styles/Belt/Models/railingCapEnd.fbx
+  artifactKey: Guid(fe62e04078828134e917870cbb22656a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AssetStorePrefabs/PCS/Styles/Belt/Models/railingCapEnd.fbx using Guid(fe62e04078828134e917870cbb22656a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '67f60ae8576115158c69120e0c12c516') in 0.045828 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Real-Time Procedural Cable Simple/Materials/Procedural_Cable_Black.mat
+  artifactKey: Guid(50998c4cae1d8f340817c7a3058b7bfa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Real-Time Procedural Cable Simple/Materials/Procedural_Cable_Black.mat using Guid(50998c4cae1d8f340817c7a3058b7bfa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '76cffc7d5d342f939535c21a54119932') in 0.007794 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/hellocardboard-unity/Models/Materials/QuadSpherePink.mat
+  artifactKey: Guid(4cc7d26a25d984c5b876a1faafcf6235) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/hellocardboard-unity/Models/Materials/QuadSpherePink.mat using Guid(4cc7d26a25d984c5b876a1faafcf6235) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2310d2e5df1272071b91e6a4ea8d9666') in 0.015136 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/hellocardboard-unity/Models/Materials/TriSphereBlue.mat
+  artifactKey: Guid(b5f3136c0efcb40b18050a014202c92c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/hellocardboard-unity/Models/Materials/TriSphereBlue.mat using Guid(b5f3136c0efcb40b18050a014202c92c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0fc97d5c43834600e4a93b3887ca7fc1') in 0.010293 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/AssetStorePrefabs/_SNAPS_PrototypingAssets/SciFi_Industrial/Materials/Red_snaps002.mat
+  artifactKey: Guid(015a5e2de7cf2514eb887cb8b34877d8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AssetStorePrefabs/_SNAPS_PrototypingAssets/SciFi_Industrial/Materials/Red_snaps002.mat using Guid(015a5e2de7cf2514eb887cb8b34877d8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e490c575a3adf587f8082c1c81f67d4e') in 0.012250 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/AssetStorePrefabs/PCS/Styles/Belt/Models/railingCapStart.fbx
+  artifactKey: Guid(d9441fdf88524f749957296daa67c4ce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AssetStorePrefabs/PCS/Styles/Belt/Models/railingCapStart.fbx using Guid(d9441fdf88524f749957296daa67c4ce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '90afd298dfb224f186ccb2a682e597cc') in 0.032830 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/AssetStorePrefabs/PCS/Styles/Belt/Models/internals.fbx
+  artifactKey: Guid(cd668a657d5d2e94bb5f8803be3e6be3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AssetStorePrefabs/PCS/Styles/Belt/Models/internals.fbx using Guid(cd668a657d5d2e94bb5f8803be3e6be3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '758ae8cc5f6b774e4083bc5b38f221a7') in 0.015099 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/AssetStorePrefabs/PCS/Styles/Belt/Models/railing.fbx
+  artifactKey: Guid(ba6da4ef18c7528419b3e16350a53eb2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AssetStorePrefabs/PCS/Styles/Belt/Models/railing.fbx using Guid(ba6da4ef18c7528419b3e16350a53eb2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '15fa04ac87877f2839e79b436900b900') in 0.033024 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 2.167598 seconds.
+  path: Assets/AssetStorePrefabs/_SNAPS_PrototypingAssets/SciFi_Industrial/Materials/Machine Green_snaps002.mat
+  artifactKey: Guid(86c38cc17be868947801ac9b80453963) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AssetStorePrefabs/_SNAPS_PrototypingAssets/SciFi_Industrial/Materials/Machine Green_snaps002.mat using Guid(86c38cc17be868947801ac9b80453963) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f9d663081d4a3f325b223112943976eb') in 0.013093 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/AssetStorePrefabs/_SNAPS_PrototypingAssets/SciFi_Industrial/Materials/Machine Green Dark_snaps002.mat
+  artifactKey: Guid(51e077d1f836fd5459499a9de2bf4c0a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AssetStorePrefabs/_SNAPS_PrototypingAssets/SciFi_Industrial/Materials/Machine Green Dark_snaps002.mat using Guid(51e077d1f836fd5459499a9de2bf4c0a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0aaa93898eb7f2832f9bc048b74df576') in 0.012676 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/AssetStorePrefabs/_SNAPS_PrototypingAssets/SciFi_Industrial/Materials/Machine Blue Dark_snaps002.mat
+  artifactKey: Guid(779370d176aafca40a59fafa5ba422d3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AssetStorePrefabs/_SNAPS_PrototypingAssets/SciFi_Industrial/Materials/Machine Blue Dark_snaps002.mat using Guid(779370d176aafca40a59fafa5ba422d3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f5b25d3f249fbc2bf7fc3bb281fb385f') in 0.012410 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000014 seconds.
+  path: Assets/AssetStorePrefabs/_SNAPS_PrototypingAssets/SciFi_Industrial/Materials/Khaki Darker.mat
+  artifactKey: Guid(ca63e1d0575d9eb4ab8e24dac32b51d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AssetStorePrefabs/_SNAPS_PrototypingAssets/SciFi_Industrial/Materials/Khaki Darker.mat using Guid(ca63e1d0575d9eb4ab8e24dac32b51d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1ea005a3757cfbe606c257f6f2c5ce5c') in 0.014459 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/AssetStorePrefabs/_SNAPS_PrototypingAssets/SciFi_Industrial/Materials/Khaki_snaps002.mat
+  artifactKey: Guid(4f6a32ae4320c1d489759d620e71be9b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AssetStorePrefabs/_SNAPS_PrototypingAssets/SciFi_Industrial/Materials/Khaki_snaps002.mat using Guid(4f6a32ae4320c1d489759d620e71be9b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c2ed0f92e88a30f13347a02f063ce0ea') in 0.013264 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/AssetStorePrefabs/_SNAPS_PrototypingAssets/SciFi_Industrial/Materials/Khaki Damp.mat
+  artifactKey: Guid(4afc0ffccab963644a4b0b22117f129e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AssetStorePrefabs/_SNAPS_PrototypingAssets/SciFi_Industrial/Materials/Khaki Damp.mat using Guid(4afc0ffccab963644a4b0b22117f129e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '85d1e760741bda8332e655917a972cbb') in 0.013956 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/AssetStorePrefabs/_SNAPS_PrototypingAssets/SciFi_Industrial/Materials/Machine Orange Light_snaps002.mat
+  artifactKey: Guid(dfe499413b9e65e409dcfaa1013609fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AssetStorePrefabs/_SNAPS_PrototypingAssets/SciFi_Industrial/Materials/Machine Orange Light_snaps002.mat using Guid(dfe499413b9e65e409dcfaa1013609fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ad1a10805f621009a37e55c90e212aa7') in 0.014987 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/hellocardboard-unity/Models/Materials/IcosahedronPink.mat
+  artifactKey: Guid(e569b4a1fb5d044619efe1abc174c85f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/hellocardboard-unity/Models/Materials/IcosahedronPink.mat using Guid(e569b4a1fb5d044619efe1abc174c85f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '55b4aa2075e76a69b87afc98c66e9ff3') in 0.009767 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/AssetStorePrefabs/_SNAPS_PrototypingAssets/SciFi_Industrial/Materials/Green_snaps002.mat
+  artifactKey: Guid(cff86b3f8014a6e4babecc006d77e004) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AssetStorePrefabs/_SNAPS_PrototypingAssets/SciFi_Industrial/Materials/Green_snaps002.mat using Guid(cff86b3f8014a6e4babecc006d77e004) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a4f2872554890d7a2edd1bf45484ac06') in 0.013990 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/AssetStorePrefabs/_SNAPS_PrototypingAssets/SciFi_Industrial/Materials/GreenDark_snaps002.mat
+  artifactKey: Guid(6f5b522968a198d40a19799562c3eae2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AssetStorePrefabs/_SNAPS_PrototypingAssets/SciFi_Industrial/Materials/GreenDark_snaps002.mat using Guid(6f5b522968a198d40a19799562c3eae2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ec2239849777af33a4b9ade68f5e1f02') in 0.015773 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.179882 seconds.
+  path: Assets/AssetStorePrefabs/_SNAPS_PrototypingAssets/SciFi_Industrial/Materials/DarkCyan_snaps002.mat
+  artifactKey: Guid(9b6f00edc7822ab47b645603f7b615b6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AssetStorePrefabs/_SNAPS_PrototypingAssets/SciFi_Industrial/Materials/DarkCyan_snaps002.mat using Guid(9b6f00edc7822ab47b645603f7b615b6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9dbac3cb1ba05652888c69c890ef6708') in 0.012097 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000014 seconds.
+  path: Assets/AssetStorePrefabs/_SNAPS_PrototypingAssets/SciFi_Industrial/Materials/Gold_snaps002.mat
+  artifactKey: Guid(f6acf520cc3bc374dbffd256f175bd4d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AssetStorePrefabs/_SNAPS_PrototypingAssets/SciFi_Industrial/Materials/Gold_snaps002.mat using Guid(f6acf520cc3bc374dbffd256f175bd4d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4f63fb2b11127054a55b780d483208ae') in 0.013664 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/AssetStorePrefabs/_SNAPS_PrototypingAssets/SciFi_Industrial/Materials/BlueWindow_snaps002.mat
+  artifactKey: Guid(50e8d87218c9f9649975e35ca3232d32) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AssetStorePrefabs/_SNAPS_PrototypingAssets/SciFi_Industrial/Materials/BlueWindow_snaps002.mat using Guid(50e8d87218c9f9649975e35ca3232d32) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2e5289a0775a48fc4299676f3c03f09d') in 0.014035 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/AssetStorePrefabs/_SNAPS_PrototypingAssets/SciFi_Industrial/Materials/DarkBlue_snaps002.mat
+  artifactKey: Guid(c2cf96f9bc9ef0143bfb62bd0e47e566) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AssetStorePrefabs/_SNAPS_PrototypingAssets/SciFi_Industrial/Materials/DarkBlue_snaps002.mat using Guid(c2cf96f9bc9ef0143bfb62bd0e47e566) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f497787a8754893627771644d42ecbba') in 0.013599 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/hellocardboard-unity/Environments/CubeRoom.obj
+  artifactKey: Guid(0b3edbbeccaa9429dafe86abead2eade) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/hellocardboard-unity/Environments/CubeRoom.obj using Guid(0b3edbbeccaa9429dafe86abead2eade) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f202a07667b8294a654612a857200f54') in 0.020165 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/AssetStorePrefabs/_SNAPS_PrototypingAssets/SciFi_Industrial/Materials/Black Metal_snaps002.mat
+  artifactKey: Guid(528bab4d959abd8438a427ca2334205f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AssetStorePrefabs/_SNAPS_PrototypingAssets/SciFi_Industrial/Materials/Black Metal_snaps002.mat using Guid(528bab4d959abd8438a427ca2334205f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cf766ddbab7ec646aa0d4912c01c80bd') in 0.011855 seconds 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.002025 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.47 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Warning: Annotation not found!
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.ProBuilder.EditorUtility:SetGizmoIconEnabled (System.Type,bool) (at Library/PackageCache/com.unity.probuilder@5.0.3/Editor/EditorCore/EditorUtility.cs:575)
+UnityEditor.ProBuilder.HierarchyListener:.cctor () (at Library/PackageCache/com.unity.probuilder@5.0.3/Editor/EditorCore/HierarchyListener.cs:21)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+[Library/PackageCache/com.unity.probuilder@5.0.3/Editor/EditorCore/EditorUtility.cs line 575]
+
+Mono: successfully reloaded assembly
+- Completed reload, in  0.829 seconds
+Domain Reload Profiling:
+	ReloadAssembly (830ms)
+		BeginReloadAssembly (110ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (3ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (25ms)
+		EndReloadAssembly (628ms)
+			LoadAssemblies (59ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (132ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (26ms)
+			SetupLoadedEditorAssemblies (333ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (10ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (47ms)
+				ProcessInitializeOnLoadAttributes (244ms)
+				ProcessInitializeOnLoadMethodAttributes (22ms)
+				AfterProcessingInitializeOnLoad (9ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (9ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.51 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2370 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 17 unused Assets / (69.0 KB). Loaded Objects now: 2947.
+Memory consumption went from 120.5 MB to 120.4 MB.
+Total: 2.895300 ms (FindLiveObjects: 0.172900 ms CreateObjectMapping: 0.087100 ms MarkObjects: 2.580900 ms  DeleteObjects: 0.053800 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+AssetImportWorker is now disconnected from the server
+Process exiting
+Exiting without the bug reporter. Application will terminate with return code 0

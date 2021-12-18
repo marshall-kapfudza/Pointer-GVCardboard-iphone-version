@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class NodeController : MonoBehaviour
 {
+
     [SerializeField]
     private Material Box_Mat;
     [SerializeField]

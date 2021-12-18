@@ -7,7 +7,7 @@ using UnityEngine.Pool;
 public class ConveyorHandler : MonoBehaviour
 {
     public List<NodeDetection> Belts { get; private set; }
-    private bool _isBeltOn;
+    public bool _isBeltOn { get; private set; }
     private void Awake()
     {
         Belts = new List<NodeDetection>();
