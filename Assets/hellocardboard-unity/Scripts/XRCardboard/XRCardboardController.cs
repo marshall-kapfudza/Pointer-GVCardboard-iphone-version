@@ -2,9 +2,11 @@
 using Google.XR.Cardboard;
 using UnityEngine.XR.Management;
 #endif
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 using UnityEngine.SpatialTracking;
 
 public class XRCardboardController : MonoBehaviour
@@ -22,6 +24,8 @@ public class XRCardboardController : MonoBehaviour
     [SerializeField, Range(.05f, 2)]
     float dragRate = .2f;
 
+    Gamepad controller;
+    ControllerInputHandler controllerHandler;
     TrackedPoseDriver poseDriver;
     Camera cam;
     Quaternion initialRotation;
@@ -36,10 +40,12 @@ public class XRCardboardController : MonoBehaviour
 
     void Awake()
     {
+        controllerHandler = gameObject.AddComponent<ControllerInputHandler>() as ControllerInputHandler;
         cam = cameraTransform.GetComponent<Camera>();
         poseDriver = cameraTransform.GetComponent<TrackedPoseDriver>();
         defaultFov = cam.fieldOfView;
         initialRotation = cameraTransform.rotation;
+        
     }
 
     void Start()
@@ -64,7 +70,14 @@ public class XRCardboardController : MonoBehaviour
         if (vrActive)
             SimulateVR();
         else
+        {
             SimulateDrag();
+            
+        }
+        
+        
+        controllerHandler.ExcuteInput(Gamepad.current);
+
 #else
         if (UnityEngine.XR.XRSettings.enabled)
             return;
@@ -75,6 +88,8 @@ public class XRCardboardController : MonoBehaviour
         attitude = initialRotation * Quaternion.Euler(Mathf.Clamp(dragDegrees.x, -45f, 45f), 0, 0);
         cameraTransform.rotation = Quaternion.Euler(0, Mathf.Clamp(-dragDegrees.y, -90f, 90f), 0) * attitude;
     }
+
+    
 
     public void ResetCamera()
     {
@@ -168,6 +183,20 @@ public class XRCardboardController : MonoBehaviour
             dragDegrees.y += delta.x * dragRate;
         }
         lastMousePos = mousePos;
+    }
+
+    private void ControllerDrag()
+    {
+        var axis = controller.rightStick.ReadValue();
+        Vector3 controllerPos = new Vector3(axis.x, axis.y, lastMousePos.z);
+        if (controller.rightStick.IsPressed())
+        {
+            
+            var delta = controllerPos - lastMousePos;
+            dragDegrees.x -= delta.y * dragRate;
+            dragDegrees.y -= delta.x * dragRate;
+        }
+        lastMousePos = controllerPos;
     }
 #endif
 }
