@@ -42,4 +42,20 @@ public class NodeSpawner : MonoBehaviour
 
     }
 
+    public void NodeConnect()
+    {
+        if (_conveyorBelt.Belts[1].Node == null) return;
+        var OtherNode = _conveyorBelt.Belts[1].Node;
+        _firstBelt.Node.ConnectCable(OtherNode);
+    }
+
+    private IEnumerator LinkNodes()
+    {
+        while (true)
+        {
+            yield return new WaitUntil(() => NodeDetection.NodesOnConveyor == ObjectPool.ActivePool);
+            NodeConnect();
+        }
+    }
+
 }
