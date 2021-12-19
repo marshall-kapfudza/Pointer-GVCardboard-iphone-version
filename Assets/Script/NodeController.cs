@@ -11,7 +11,7 @@ public class NodeController : MonoBehaviour
     private Material Outline;
     private Renderer _myRenderer;
     private bool _isSelected;
-
+    private bool _isOnClick;
 
     [field: SerializeField]
     public CableStatic CableFront { get; private set; }
@@ -20,6 +20,7 @@ public class NodeController : MonoBehaviour
 
     private void Start()
     {
+        _isOnClick = false;
         _isSelected = false;
         _myRenderer = GetComponent<Renderer>();
         ConnectionEndPoint = transform.GetChild(1).gameObject;
@@ -47,15 +48,21 @@ public class NodeController : MonoBehaviour
     public void OnClick()
     {
         _isSelected = !_isSelected;
-        SetMaterial(_isSelected);
+        _isOnClick = true;
+        SetMaterial(false);
     }
     public void OnHover()
     {
-        SetMaterial(_isSelected);
+        if (_isSelected || _isOnClick) return;
+        SetMaterial(false);
     }
     public void OnExit()
     {
-        SetMaterial(!_isSelected);
+        _isOnClick = false;
+        if(_isSelected) return;
+        SetMaterial(true);
+        
+        
     }
     private void SetMaterial(bool gazedAt)
     {
