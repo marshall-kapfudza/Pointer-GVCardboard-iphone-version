@@ -4,7 +4,7 @@ using UnityEngine;
 public class CoroutineSpawnNodeManager : MonoBehaviour
 {
     public Coroutine NodeCoroutine { get; private set; }
-    private GameObject _node;
+    private GameObject _node; 
     private void Start()
     {
         _node = null;
