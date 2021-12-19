@@ -1,11 +1,21 @@
 using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
-
+using System;
 
 public class ConveyorHandler : MonoBehaviour
 {
     public List<NodeDetection> Belts { get; private set; }
     public bool isBeltOn { get; private set; }
+    public int insert = 0;
+    private Coroutine DropNodeCoroutine;
+    Rigidbody NI_RigidBody;
+
+    [ContextMenu("Insert node")]
+    public void test()
+    {
+        InsertNode(insert);
+    }
     private void Awake()
     {
         Belts = new List<NodeDetection>();
@@ -23,6 +33,8 @@ public class ConveyorHandler : MonoBehaviour
         }
 
         ChangeConveyorBeltState(ConveyorDirection.LEFT);
+        DropNodeCoroutine = StartCoroutine(DropNode());
+        NI_RigidBody = null;
 
     }
     private void Update()
@@ -59,9 +71,34 @@ public class ConveyorHandler : MonoBehaviour
    
     [ContextMenu("Insert Node")]
     //shift nodes right and insert the node at the currentNode;
-    public void InsertNode()
+    public void InsertNode(int insertion)
     {
+        
+        if (Belts[insertion].Node == null) return;
+        NodeDetection nodeDetection = Belts[insertion];
+        Vector3 postionToSpawnNode = nodeDetection.transform.position;
+        Quaternion rotationToSpawnNode = nodeDetection.transform.rotation;
+        Vector3 offset = new Vector3(0, 3, 0);
+        postionToSpawnNode = postionToSpawnNode + offset;
+        var nodeToInsert = ObjectPool.Instance.SpawnFromPool("Node", postionToSpawnNode, rotationToSpawnNode);
+        NodeDetection.ResetActiveNodes();
+        ChangeConveyorBeltState(ConveyorDirection.LEFT);
+        NI_RigidBody = nodeToInsert.GetComponent<Rigidbody>();
+        NI_RigidBody.useGravity = false;
 
+    }
+
+    private IEnumerator DropNode()
+    {
+        while (true)
+        {
+            yield return new WaitUntil(() => NI_RigidBody != null);
+            yield return new WaitForSeconds(2f);
+            NI_RigidBody.useGravity = true;
+            NI_RigidBody = null;
+
+            
+        }
     }
 
     //remove node at current node and shift nodes to the left

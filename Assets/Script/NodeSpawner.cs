@@ -28,6 +28,7 @@ public class NodeSpawner : MonoBehaviour
         _isSpawning = false;
     }
 
+
     public void CreateNewNode()
     {
         if (_isSpawning || NodeDetection.NodesOnConveyor != ObjectPool.ActivePool) return;
@@ -35,6 +36,7 @@ public class NodeSpawner : MonoBehaviour
         _conveyorBelt.ChangeConveyorBeltState(ConveyorDirection.LEFT);
         _spawnManager.SpawnNode(transform.position, transform.rotation);
         _isSpawning = true;
+
     }
 
 }
