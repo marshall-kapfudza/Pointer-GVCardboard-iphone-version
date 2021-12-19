@@ -19,10 +19,12 @@ public class NodeSpawner : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
+        if (!_isSpawning) return;
         _firstBelt.ActivateConveyor(ConveyorDirection.LEFT);
     }
     private void OnTriggerExit(Collider other)
     {
+        if (!_isSpawning) return;
         _isSpawning = false;
     }
 
