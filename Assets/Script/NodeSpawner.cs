@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 /*
  Abdoulaye 
@@ -10,12 +11,14 @@ public class NodeSpawner : MonoBehaviour
     private ConveyorHandler _conveyorBelt;
     private bool _isSpawning;
     private NodeDetection _firstBelt;
+    private Coroutine CableConnecter;
     void Start()
     {
         _conveyorBelt = GameObject.FindGameObjectWithTag("Convayor").GetComponent<ConveyorHandler>();
         _spawnManager = GetComponent<CoroutineSpawnNodeManager>();
         _firstBelt = _conveyorBelt.Belts[0];
         _isSpawning = false;
+        CableConnecter = StartCoroutine(LinkNodes());
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -35,6 +38,23 @@ public class NodeSpawner : MonoBehaviour
         _conveyorBelt.ChangeConveyorBeltState(ConveyorDirection.LEFT);
         _spawnManager.SpawnNode(transform.position, transform.rotation);
         _isSpawning = true;
+
+    }
+
+    public void NodeConnect()
+    {
+        if (_conveyorBelt.Belts[1].Node == null) return;
+        var OtherNode = _conveyorBelt.Belts[1].Node;
+        _firstBelt.Node.ConnectCable(OtherNode);
+    }
+
+    private IEnumerator LinkNodes()
+    {
+        while (true)
+        {
+            yield return new WaitUntil(() => NodeDetection.NodesOnConveyor == ObjectPool.ActivePool);
+            NodeConnect();
+        }
     }
 
 }
