@@ -1,13 +1,11 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Pool;
 
 
 public class ConveyorHandler : MonoBehaviour
 {
     public List<NodeDetection> Belts { get; private set; }
-    private bool _isBeltOn;
+    public bool isBeltOn { get; private set; }
     private void Awake()
     {
         Belts = new List<NodeDetection>();
@@ -15,7 +13,7 @@ public class ConveyorHandler : MonoBehaviour
 
     private void Start()
     {
-        _isBeltOn = false;
+        isBeltOn = false;
         NodeDetection belt;
         foreach(Transform child in transform)
         {
@@ -29,10 +27,11 @@ public class ConveyorHandler : MonoBehaviour
     }
     private void Update()
     {
-        if (!_isBeltOn) return;
+        if (!isBeltOn) return;
         if(NodeDetection.NodesOnConveyor == ObjectPool.ActivePool)
         {
             ChangeConveyorBeltState(ConveyorDirection.STOP);
+            isBeltOn = false;
         }
     }
 
@@ -51,7 +50,7 @@ public class ConveyorHandler : MonoBehaviour
     //Turns all the convoyer on and move nodes to right left or stop
     public void ChangeConveyorBeltState(float direction)
     {
-        _isBeltOn = true;
+        isBeltOn = true;
         foreach(var belt in Belts)
         {
             belt.ActivateConveyor(direction);

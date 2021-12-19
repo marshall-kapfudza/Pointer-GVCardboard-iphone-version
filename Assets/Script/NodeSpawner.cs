@@ -6,8 +6,6 @@ using UnityEngine;
  */
 public class NodeSpawner : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject nodePrefab;
     private CoroutineSpawnNodeManager _spawnManager;
     private ConveyorHandler _conveyorBelt;
     private bool _isSpawning;
@@ -21,11 +19,12 @@ public class NodeSpawner : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        
+        if (!_isSpawning) return;
         _firstBelt.ActivateConveyor(ConveyorDirection.LEFT);
     }
     private void OnTriggerExit(Collider other)
     {
+        if (!_isSpawning) return;
         _isSpawning = false;
     }
 
@@ -37,6 +36,5 @@ public class NodeSpawner : MonoBehaviour
         _spawnManager.SpawnNode(transform.position, transform.rotation);
         _isSpawning = true;
     }
-
 
 }

@@ -18,11 +18,13 @@ public class ControllerInputHandler : MonoBehaviour
 
         if (Controller.leftStick.left.isPressed)
         {
+            if (MoveConveyerBelts.isBeltOn) return;
             NodeDetection.ResetActiveNodes();
             MoveConveyerBelts.ChangeConveyorBeltState(ConveyorDirection.LEFT);
         }
         if (Controller.leftStick.right.isPressed)
         {
+            if (MoveConveyerBelts.isBeltOn) return;
             NodeDetection.ResetActiveNodes();
             MoveConveyerBelts.ChangeConveyorBeltState(ConveyorDirection.RIGHT);
         }
