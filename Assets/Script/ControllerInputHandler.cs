@@ -6,23 +6,40 @@ public class ControllerInputHandler : MonoBehaviour
     [SerializeField]
     ConveyorHandler MoveConveyerBelts;
     NodeSpawner createANode;
-    UIMenu Menu;
-    private Controller controller;
+    Controller controller;
+    [SerializeField]
+    UIMenu menu;
 
     private void Awake()
     {
         controller = new Controller();
-
-        controller.MainScene.ShowMenu.performed += ctx => Menu.MenuDisplay();
+        controller.MainScene.ShowMenu.performed += ctx => ShowMenu();
+        controller.MainScene.InsertNewNode.performed += ctx => createANode.CreateNewNode();
     }
-
     private void Start()
     {
         MoveConveyerBelts = GameObject.FindGameObjectWithTag("Convayor").GetComponent<ConveyorHandler>();
         createANode = GameObject.FindGameObjectWithTag("NodeSpawner").GetComponent<NodeSpawner>();
-        Menu = GameObject.FindGameObjectWithTag("Menu").GetComponent<UIMenu>();
     }
-    public void ExcuteInput(Gamepad Controller)
+       
+    public void ShowMenu()
+    {
+        menu.MenuDisplay();
+        controller.MainScene.Disable();
+    }
+    private void OnEnable()
+    {
+        controller.MainScene.Enable();
+    }
+    private void OnDisable()
+    {
+        controller.MainScene.Disable();
+    }
+
+
+
+
+    /*public void ExcuteInput(Gamepad Controller)
     {
 
         if (Controller.leftStick.left.isPressed)
@@ -42,10 +59,5 @@ public class ControllerInputHandler : MonoBehaviour
             createANode.CreateNewNode();
         }
 
-        if (Controller.dpad.right.isPressed)
-        {
-            Menu.MenuDisplay();
-        }
-
-    }
+    }*/
 }

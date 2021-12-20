@@ -24,8 +24,10 @@ public class XRCardboardController : MonoBehaviour
     [SerializeField, Range(.05f, 2)]
     float dragRate = .2f;
 
-    Gamepad controller;
-    ControllerInputHandler controllerHandler;
+//    Gamepad controller;
+//    ControllerInputHandler controllerHandler;
+
+
     TrackedPoseDriver poseDriver;
     Camera cam;
     Quaternion initialRotation;
@@ -40,18 +42,19 @@ public class XRCardboardController : MonoBehaviour
 
     void Awake()
     {
-        controllerHandler = gameObject.AddComponent<ControllerInputHandler>() as ControllerInputHandler;
+//        controllerHandler = gameObject.AddComponent<ControllerInputHandler>() as ControllerInputHandler;
         cam = cameraTransform.GetComponent<Camera>();
         poseDriver = cameraTransform.GetComponent<TrackedPoseDriver>();
         defaultFov = cam.fieldOfView;
         initialRotation = cameraTransform.rotation;
         
     }
-
+    
     void Start()
     {
+
 #if UNITY_EDITOR
-        SetObjects(vrActive);
+    SetObjects(vrActive);
 #else
         SetObjects(UnityEngine.XR.XRSettings.enabled);
 #endif
@@ -76,7 +79,7 @@ public class XRCardboardController : MonoBehaviour
         }
         
         
-        controllerHandler.ExcuteInput(Gamepad.current);
+//        controllerHandler.ExcuteInput(Gamepad.current);
 
 #else
         if (UnityEngine.XR.XRSettings.enabled)
@@ -185,7 +188,7 @@ public class XRCardboardController : MonoBehaviour
         lastMousePos = mousePos;
     }
 
-    private void ControllerDrag()
+    /*private void ControllerDrag()
     {
         var axis = controller.rightStick.ReadValue();
         Vector3 controllerPos = new Vector3(axis.x, axis.y, lastMousePos.z);
@@ -197,6 +200,6 @@ public class XRCardboardController : MonoBehaviour
             dragDegrees.y -= delta.x * dragRate;
         }
         lastMousePos = controllerPos;
-    }
+    }*/
 #endif
 }

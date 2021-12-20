@@ -1,14 +1,14 @@
 {
-    "name": "New Controls",
+    "name": "Controller",
     "maps": [
         {
-            "name": "MainScene ",
-            "id": "96264bd3-9a5f-48b6-8d8b-85a49841a62b",
+            "name": "Menu",
+            "id": "030040de-8e4d-4c0b-8d3d-e758f81b10e8",
             "actions": [
                 {
-                    "name": "ShowMenu",
+                    "name": "PopUp",
                     "type": "Button",
-                    "id": "ff81faf0-4a81-4227-a499-2caa1420d7ae",
+                    "id": "59559419-67b2-4b7a-bfe0-f58a73e56789",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -18,12 +18,60 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "cbc34ddc-bb68-4d9c-9e4b-fc10b427a45f",
+                    "id": "c8d47b71-96c1-40da-a305-03db5f765c1e",
                     "path": "<Gamepad>/start",
-                    "interactions": "Tap",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PopUp",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "MainScene",
+            "id": "746233da-cfea-42a4-b444-d8d910be5cf6",
+            "actions": [
+                {
+                    "name": "ShowMenu",
+                    "type": "Button",
+                    "id": "f8bbfc9f-9cb0-47ad-94e3-2aeae4db462d",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "InsertNewNode",
+                    "type": "Button",
+                    "id": "af2bcb20-28ff-47eb-9771-60f3f45d0296",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "131ae4a9-604c-4fd2-a2f7-1690f36d22c2",
+                    "path": "<Gamepad>/start",
+                    "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "ShowMenu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "70e57a06-b32e-4d64-a435-f9ca40193eee",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "InsertNewNode",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
