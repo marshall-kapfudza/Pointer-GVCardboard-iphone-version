@@ -37,9 +37,27 @@ public partial class @Controller : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Up"",
+                    ""name"": ""Down"",
                     ""type"": ""Button"",
                     ""id"": ""468169af-4c1d-4cea-aa6b-addfe9c7397c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Up"",
+                    ""type"": ""Button"",
+                    ""id"": ""c6d53209-abf1-49f4-9c8f-a2aa982a1331"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Select"",
+                    ""type"": ""Button"",
+                    ""id"": ""8f2970b4-5e2e-41c5-a33b-9ca2878363aa"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -61,11 +79,33 @@ public partial class @Controller : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""d51c884d-6550-454c-9d32-8ff779b7e2a5"",
+                    ""path"": ""<Gamepad>/dpad/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Down"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3e9215bb-f5f6-4749-a47d-f02d0d2d0e5e"",
                     ""path"": ""<Gamepad>/dpad/up"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Up"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""97213522-556c-4c28-a3c7-d98b54c6cf42"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Select"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -185,7 +225,9 @@ public partial class @Controller : IInputActionCollection2, IDisposable
         // Menu
         m_Menu = asset.FindActionMap("Menu", throwIfNotFound: true);
         m_Menu_DisableMenu = m_Menu.FindAction("DisableMenu", throwIfNotFound: true);
+        m_Menu_Down = m_Menu.FindAction("Down", throwIfNotFound: true);
         m_Menu_Up = m_Menu.FindAction("Up", throwIfNotFound: true);
+        m_Menu_Select = m_Menu.FindAction("Select", throwIfNotFound: true);
         // MainScene
         m_MainScene = asset.FindActionMap("MainScene", throwIfNotFound: true);
         m_MainScene_EnableMenu = m_MainScene.FindAction("EnableMenu", throwIfNotFound: true);
@@ -253,13 +295,17 @@ public partial class @Controller : IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Menu;
     private IMenuActions m_MenuActionsCallbackInterface;
     private readonly InputAction m_Menu_DisableMenu;
+    private readonly InputAction m_Menu_Down;
     private readonly InputAction m_Menu_Up;
+    private readonly InputAction m_Menu_Select;
     public struct MenuActions
     {
         private @Controller m_Wrapper;
         public MenuActions(@Controller wrapper) { m_Wrapper = wrapper; }
         public InputAction @DisableMenu => m_Wrapper.m_Menu_DisableMenu;
+        public InputAction @Down => m_Wrapper.m_Menu_Down;
         public InputAction @Up => m_Wrapper.m_Menu_Up;
+        public InputAction @Select => m_Wrapper.m_Menu_Select;
         public InputActionMap Get() { return m_Wrapper.m_Menu; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -272,9 +318,15 @@ public partial class @Controller : IInputActionCollection2, IDisposable
                 @DisableMenu.started -= m_Wrapper.m_MenuActionsCallbackInterface.OnDisableMenu;
                 @DisableMenu.performed -= m_Wrapper.m_MenuActionsCallbackInterface.OnDisableMenu;
                 @DisableMenu.canceled -= m_Wrapper.m_MenuActionsCallbackInterface.OnDisableMenu;
+                @Down.started -= m_Wrapper.m_MenuActionsCallbackInterface.OnDown;
+                @Down.performed -= m_Wrapper.m_MenuActionsCallbackInterface.OnDown;
+                @Down.canceled -= m_Wrapper.m_MenuActionsCallbackInterface.OnDown;
                 @Up.started -= m_Wrapper.m_MenuActionsCallbackInterface.OnUp;
                 @Up.performed -= m_Wrapper.m_MenuActionsCallbackInterface.OnUp;
                 @Up.canceled -= m_Wrapper.m_MenuActionsCallbackInterface.OnUp;
+                @Select.started -= m_Wrapper.m_MenuActionsCallbackInterface.OnSelect;
+                @Select.performed -= m_Wrapper.m_MenuActionsCallbackInterface.OnSelect;
+                @Select.canceled -= m_Wrapper.m_MenuActionsCallbackInterface.OnSelect;
             }
             m_Wrapper.m_MenuActionsCallbackInterface = instance;
             if (instance != null)
@@ -282,9 +334,15 @@ public partial class @Controller : IInputActionCollection2, IDisposable
                 @DisableMenu.started += instance.OnDisableMenu;
                 @DisableMenu.performed += instance.OnDisableMenu;
                 @DisableMenu.canceled += instance.OnDisableMenu;
+                @Down.started += instance.OnDown;
+                @Down.performed += instance.OnDown;
+                @Down.canceled += instance.OnDown;
                 @Up.started += instance.OnUp;
                 @Up.performed += instance.OnUp;
                 @Up.canceled += instance.OnUp;
+                @Select.started += instance.OnSelect;
+                @Select.performed += instance.OnSelect;
+                @Select.canceled += instance.OnSelect;
             }
         }
     }
@@ -357,7 +415,9 @@ public partial class @Controller : IInputActionCollection2, IDisposable
     public interface IMenuActions
     {
         void OnDisableMenu(InputAction.CallbackContext context);
+        void OnDown(InputAction.CallbackContext context);
         void OnUp(InputAction.CallbackContext context);
+        void OnSelect(InputAction.CallbackContext context);
     }
     public interface IMainSceneActions
     {
