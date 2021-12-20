@@ -5,6 +5,7 @@ using System;
 
 public class ConveyorHandler : MonoBehaviour
 {
+    
     public List<NodeDetection> Belts { get; private set; }
     public bool isBeltOn { get; private set; }
     public int insert = 0;

@@ -13,8 +13,9 @@ public class ControllerInputHandler : MonoBehaviour
     private void Awake()
     {
         controller = new Controller();
-        controller.MainScene.ShowMenu.performed += ctx => ShowMenu();
+        controller.MainScene.EnableMenu.performed += ctx => ShowMenu();
         controller.MainScene.InsertNewNode.performed += ctx => createANode.CreateNewNode();
+        controller.Menu.DisableMenu.performed += ctx => DisableMenu();
     }
     private void Start()
     {
@@ -26,10 +27,20 @@ public class ControllerInputHandler : MonoBehaviour
     {
         menu.MenuDisplay();
         controller.MainScene.Disable();
+        controller.Menu.Enable();
+        
+    }
+
+    public void DisableMenu()
+    {
+        menu.MenuDisplay();
+        controller.Menu.Disable();
+        controller.MainScene.Enable();
     }
     private void OnEnable()
     {
         controller.MainScene.Enable();
+        controller.Menu.Disable();
     }
     private void OnDisable()
     {

@@ -6,7 +6,7 @@
             "id": "030040de-8e4d-4c0b-8d3d-e758f81b10e8",
             "actions": [
                 {
-                    "name": "PopUp",
+                    "name": "DisableMenu",
                     "type": "Button",
                     "id": "59559419-67b2-4b7a-bfe0-f58a73e56789",
                     "expectedControlType": "Button",
@@ -23,7 +23,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "PopUp",
+                    "action": "DisableMenu",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -34,7 +34,7 @@
             "id": "746233da-cfea-42a4-b444-d8d910be5cf6",
             "actions": [
                 {
-                    "name": "ShowMenu",
+                    "name": "EnableMenu",
                     "type": "Button",
                     "id": "f8bbfc9f-9cb0-47ad-94e3-2aeae4db462d",
                     "expectedControlType": "Button",
@@ -60,7 +60,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "ShowMenu",
+                    "action": "EnableMenu",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

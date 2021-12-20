@@ -28,7 +28,7 @@ public partial class @Controller : IInputActionCollection2, IDisposable
             ""id"": ""030040de-8e4d-4c0b-8d3d-e758f81b10e8"",
             ""actions"": [
                 {
-                    ""name"": ""PopUp"",
+                    ""name"": ""DisableMenu"",
                     ""type"": ""Button"",
                     ""id"": ""59559419-67b2-4b7a-bfe0-f58a73e56789"",
                     ""expectedControlType"": ""Button"",
@@ -45,7 +45,7 @@ public partial class @Controller : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""PopUp"",
+                    ""action"": ""DisableMenu"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -56,7 +56,7 @@ public partial class @Controller : IInputActionCollection2, IDisposable
             ""id"": ""746233da-cfea-42a4-b444-d8d910be5cf6"",
             ""actions"": [
                 {
-                    ""name"": ""ShowMenu"",
+                    ""name"": ""EnableMenu"",
                     ""type"": ""Button"",
                     ""id"": ""f8bbfc9f-9cb0-47ad-94e3-2aeae4db462d"",
                     ""expectedControlType"": ""Button"",
@@ -82,7 +82,7 @@ public partial class @Controller : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""ShowMenu"",
+                    ""action"": ""EnableMenu"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -104,10 +104,10 @@ public partial class @Controller : IInputActionCollection2, IDisposable
 }");
         // Menu
         m_Menu = asset.FindActionMap("Menu", throwIfNotFound: true);
-        m_Menu_PopUp = m_Menu.FindAction("PopUp", throwIfNotFound: true);
+        m_Menu_DisableMenu = m_Menu.FindAction("DisableMenu", throwIfNotFound: true);
         // MainScene
         m_MainScene = asset.FindActionMap("MainScene", throwIfNotFound: true);
-        m_MainScene_ShowMenu = m_MainScene.FindAction("ShowMenu", throwIfNotFound: true);
+        m_MainScene_EnableMenu = m_MainScene.FindAction("EnableMenu", throwIfNotFound: true);
         m_MainScene_InsertNewNode = m_MainScene.FindAction("InsertNewNode", throwIfNotFound: true);
     }
 
@@ -168,12 +168,12 @@ public partial class @Controller : IInputActionCollection2, IDisposable
     // Menu
     private readonly InputActionMap m_Menu;
     private IMenuActions m_MenuActionsCallbackInterface;
-    private readonly InputAction m_Menu_PopUp;
+    private readonly InputAction m_Menu_DisableMenu;
     public struct MenuActions
     {
         private @Controller m_Wrapper;
         public MenuActions(@Controller wrapper) { m_Wrapper = wrapper; }
-        public InputAction @PopUp => m_Wrapper.m_Menu_PopUp;
+        public InputAction @DisableMenu => m_Wrapper.m_Menu_DisableMenu;
         public InputActionMap Get() { return m_Wrapper.m_Menu; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -183,16 +183,16 @@ public partial class @Controller : IInputActionCollection2, IDisposable
         {
             if (m_Wrapper.m_MenuActionsCallbackInterface != null)
             {
-                @PopUp.started -= m_Wrapper.m_MenuActionsCallbackInterface.OnPopUp;
-                @PopUp.performed -= m_Wrapper.m_MenuActionsCallbackInterface.OnPopUp;
-                @PopUp.canceled -= m_Wrapper.m_MenuActionsCallbackInterface.OnPopUp;
+                @DisableMenu.started -= m_Wrapper.m_MenuActionsCallbackInterface.OnDisableMenu;
+                @DisableMenu.performed -= m_Wrapper.m_MenuActionsCallbackInterface.OnDisableMenu;
+                @DisableMenu.canceled -= m_Wrapper.m_MenuActionsCallbackInterface.OnDisableMenu;
             }
             m_Wrapper.m_MenuActionsCallbackInterface = instance;
             if (instance != null)
             {
-                @PopUp.started += instance.OnPopUp;
-                @PopUp.performed += instance.OnPopUp;
-                @PopUp.canceled += instance.OnPopUp;
+                @DisableMenu.started += instance.OnDisableMenu;
+                @DisableMenu.performed += instance.OnDisableMenu;
+                @DisableMenu.canceled += instance.OnDisableMenu;
             }
         }
     }
@@ -201,13 +201,13 @@ public partial class @Controller : IInputActionCollection2, IDisposable
     // MainScene
     private readonly InputActionMap m_MainScene;
     private IMainSceneActions m_MainSceneActionsCallbackInterface;
-    private readonly InputAction m_MainScene_ShowMenu;
+    private readonly InputAction m_MainScene_EnableMenu;
     private readonly InputAction m_MainScene_InsertNewNode;
     public struct MainSceneActions
     {
         private @Controller m_Wrapper;
         public MainSceneActions(@Controller wrapper) { m_Wrapper = wrapper; }
-        public InputAction @ShowMenu => m_Wrapper.m_MainScene_ShowMenu;
+        public InputAction @EnableMenu => m_Wrapper.m_MainScene_EnableMenu;
         public InputAction @InsertNewNode => m_Wrapper.m_MainScene_InsertNewNode;
         public InputActionMap Get() { return m_Wrapper.m_MainScene; }
         public void Enable() { Get().Enable(); }
@@ -218,9 +218,9 @@ public partial class @Controller : IInputActionCollection2, IDisposable
         {
             if (m_Wrapper.m_MainSceneActionsCallbackInterface != null)
             {
-                @ShowMenu.started -= m_Wrapper.m_MainSceneActionsCallbackInterface.OnShowMenu;
-                @ShowMenu.performed -= m_Wrapper.m_MainSceneActionsCallbackInterface.OnShowMenu;
-                @ShowMenu.canceled -= m_Wrapper.m_MainSceneActionsCallbackInterface.OnShowMenu;
+                @EnableMenu.started -= m_Wrapper.m_MainSceneActionsCallbackInterface.OnEnableMenu;
+                @EnableMenu.performed -= m_Wrapper.m_MainSceneActionsCallbackInterface.OnEnableMenu;
+                @EnableMenu.canceled -= m_Wrapper.m_MainSceneActionsCallbackInterface.OnEnableMenu;
                 @InsertNewNode.started -= m_Wrapper.m_MainSceneActionsCallbackInterface.OnInsertNewNode;
                 @InsertNewNode.performed -= m_Wrapper.m_MainSceneActionsCallbackInterface.OnInsertNewNode;
                 @InsertNewNode.canceled -= m_Wrapper.m_MainSceneActionsCallbackInterface.OnInsertNewNode;
@@ -228,9 +228,9 @@ public partial class @Controller : IInputActionCollection2, IDisposable
             m_Wrapper.m_MainSceneActionsCallbackInterface = instance;
             if (instance != null)
             {
-                @ShowMenu.started += instance.OnShowMenu;
-                @ShowMenu.performed += instance.OnShowMenu;
-                @ShowMenu.canceled += instance.OnShowMenu;
+                @EnableMenu.started += instance.OnEnableMenu;
+                @EnableMenu.performed += instance.OnEnableMenu;
+                @EnableMenu.canceled += instance.OnEnableMenu;
                 @InsertNewNode.started += instance.OnInsertNewNode;
                 @InsertNewNode.performed += instance.OnInsertNewNode;
                 @InsertNewNode.canceled += instance.OnInsertNewNode;
@@ -240,11 +240,11 @@ public partial class @Controller : IInputActionCollection2, IDisposable
     public MainSceneActions @MainScene => new MainSceneActions(this);
     public interface IMenuActions
     {
-        void OnPopUp(InputAction.CallbackContext context);
+        void OnDisableMenu(InputAction.CallbackContext context);
     }
     public interface IMainSceneActions
     {
-        void OnShowMenu(InputAction.CallbackContext context);
+        void OnEnableMenu(InputAction.CallbackContext context);
         void OnInsertNewNode(InputAction.CallbackContext context);
     }
 }
