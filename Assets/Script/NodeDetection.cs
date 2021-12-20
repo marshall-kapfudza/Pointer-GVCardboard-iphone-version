@@ -8,7 +8,7 @@ public class NodeDetection : MonoBehaviour
     [field: SerializeField]
     public PCSConfig Conveyor { get; private set; }
     [field: SerializeField]
-    public static int NodesOnConveyor { get; private set; }
+    public static int NodesOnConveyor;
     
     private void Start()
     {

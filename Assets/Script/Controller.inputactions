@@ -1,0 +1,162 @@
+{
+    "name": "Controller",
+    "maps": [
+        {
+            "name": "Menu",
+            "id": "030040de-8e4d-4c0b-8d3d-e758f81b10e8",
+            "actions": [
+                {
+                    "name": "DisableMenu",
+                    "type": "Button",
+                    "id": "59559419-67b2-4b7a-bfe0-f58a73e56789",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Up",
+                    "type": "Button",
+                    "id": "468169af-4c1d-4cea-aa6b-addfe9c7397c",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "c8d47b71-96c1-40da-a305-03db5f765c1e",
+                    "path": "<Gamepad>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "DisableMenu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d51c884d-6550-454c-9d32-8ff779b7e2a5",
+                    "path": "<Gamepad>/dpad/up",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Up",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "MainScene",
+            "id": "746233da-cfea-42a4-b444-d8d910be5cf6",
+            "actions": [
+                {
+                    "name": "EnableMenu",
+                    "type": "Button",
+                    "id": "f8bbfc9f-9cb0-47ad-94e3-2aeae4db462d",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "SelectPointer",
+                    "type": "Button",
+                    "id": "af2bcb20-28ff-47eb-9771-60f3f45d0296",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "NextPointer",
+                    "type": "Button",
+                    "id": "4b71d825-2148-4c1d-a919-fc99e7e70aeb",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "BackPointer",
+                    "type": "Button",
+                    "id": "afeccce2-9f61-4039-bee4-df44b7e9200e",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "TestInsert",
+                    "type": "Button",
+                    "id": "5e4ec871-4c7a-4565-8c49-140927903f00",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "131ae4a9-604c-4fd2-a2f7-1690f36d22c2",
+                    "path": "<Gamepad>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "EnableMenu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "70e57a06-b32e-4d64-a435-f9ca40193eee",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SelectPointer",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "bc822080-1172-40e6-921b-85eac9030860",
+                    "path": "<Gamepad>/dpad/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "NextPointer",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "51a58f47-0842-4206-9390-c301fdee00b2",
+                    "path": "<Gamepad>/dpad/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "BackPointer",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6770d529-0e96-457a-9bbb-9e0d4149ddf5",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "TestInsert",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

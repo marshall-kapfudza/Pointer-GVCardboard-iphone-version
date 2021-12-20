@@ -1,18 +1,27 @@
 using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
-
+using System;
 
 public class ConveyorHandler : MonoBehaviour
 {
+    public static ConveyorHandler Instance;
+    private NodeController currentPointer;
     public List<NodeDetection> Belts { get; private set; }
     public bool isBeltOn { get; private set; }
+    private Coroutine DropNodeCoroutine;
+    private Rigidbody NI_RigidBody;
+
+
     private void Awake()
     {
+        Instance = this;
         Belts = new List<NodeDetection>();
     }
 
     private void Start()
     {
+        
         isBeltOn = false;
         NodeDetection belt;
         foreach(Transform child in transform)
@@ -23,16 +32,21 @@ public class ConveyorHandler : MonoBehaviour
         }
 
         ChangeConveyorBeltState(ConveyorDirection.LEFT);
+        DropNodeCoroutine = StartCoroutine(DropNode());
+        NI_RigidBody = null;
+        currentPointer = null;
 
     }
     private void Update()
     {
+        
         if (!isBeltOn) return;
         if(NodeDetection.NodesOnConveyor == ObjectPool.ActivePool)
         {
             ChangeConveyorBeltState(ConveyorDirection.STOP);
             isBeltOn = false;
         }
+
     }
 
     public bool Empty()
@@ -61,9 +75,61 @@ public class ConveyorHandler : MonoBehaviour
     //shift nodes right and insert the node at the currentNode;
     public void InsertNode()
     {
+        
+        if (Belts[0].Node == null) return;
+        NodeDetection nodeDetection = Belts[0];
+        Vector3 postionToSpawnNode = nodeDetection.transform.position;
+        Quaternion rotationToSpawnNode = nodeDetection.transform.rotation;
+        Vector3 offset = new Vector3(0, 3, 0);
+        postionToSpawnNode = postionToSpawnNode + offset;
+        var nodeToInsert = ObjectPool.Instance.SpawnFromPool("Node", postionToSpawnNode, rotationToSpawnNode);
+        NodeDetection.ResetActiveNodes();
+        ChangeConveyorBeltState(ConveyorDirection.LEFT);
+        NI_RigidBody = nodeToInsert.GetComponent<Rigidbody>();
+        NI_RigidBody.useGravity = false;
 
     }
 
+    private IEnumerator DropNode()
+    {
+        while (true)
+        {
+            yield return new WaitUntil(() => NI_RigidBody != null);
+            yield return new WaitForSeconds(2f);
+            NI_RigidBody.useGravity = true;
+            NI_RigidBody = null;  
+        }
+    }
+
+    public void HighlightRightNode()
+    {
+        
+    }
+
+    public void HighlightLeftNode()
+    {
+        
+    }
+
+    public void SelectNode()
+    {
+        if(currentPointer != null)
+        currentPointer.OnSelect();
+    }
+
+    public int FindCurrent()
+    {
+        return Belts.FindIndex(node => node == currentPointer);
+    }
+    public void ResetCurrentPointer()
+    {
+        if (currentPointer != null)
+        {
+            if(currentPointer.IsSelected)
+                SelectNode();
+        }
+        currentPointer = Belts[0].Node;
+    }
     //remove node at current node and shift nodes to the left
     public void RemoveNode()
     {

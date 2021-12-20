@@ -10,7 +10,7 @@ public class NodeController : MonoBehaviour
     [SerializeField]
     private Material Outline;
     private Renderer _myRenderer;
-    private bool _isSelected;
+    public bool IsSelected { get; private set; }
 
 
     [field: SerializeField]
@@ -20,7 +20,7 @@ public class NodeController : MonoBehaviour
 
     private void Start()
     {
-        _isSelected = false;
+        IsSelected = false;
         _myRenderer = GetComponent<Renderer>();
         ConnectionEndPoint = transform.GetChild(1).gameObject;
         CableFront = transform.GetChild(0).gameObject.GetComponent<CableStatic>();
@@ -44,24 +44,17 @@ public class NodeController : MonoBehaviour
         CableFront.SetEndPoint(null);
         CableFront.gameObject.SetActive(false);
     }
-    public void OnClick()
+    public void OnSelect()
     {
-        _isSelected = !_isSelected;
-        SetMaterial(_isSelected);
+        IsSelected = !IsSelected;
+        SetMaterial(IsSelected);
     }
-    public void OnHover()
-    {
-        SetMaterial(_isSelected);
-    }
-    public void OnExit()
-    {
-        SetMaterial(!_isSelected);
-    }
+
     private void SetMaterial(bool gazedAt)
     {
         if (Box_Mat != null && Outline != null)
         {
-            _myRenderer.material = gazedAt ? Box_Mat : Outline;
+            _myRenderer.material = gazedAt ?  Outline : Box_Mat;
         }
     }
 }
