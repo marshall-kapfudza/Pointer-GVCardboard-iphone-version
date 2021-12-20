@@ -3970,7 +3970,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9031e66c254c4f40888ce027e23fb4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menuFirstButton: {fileID: 0}
+  menuFirstButton: {fileID: 352316136}
 --- !u!1 &282072750
 GameObject:
   m_ObjectHideFlags: 0
@@ -5336,7 +5336,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 0
+    m_Mode: 4
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 407189562}
@@ -6343,7 +6343,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cfbf2111b525e94c9510373c5de2ff7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  insert: 0
 --- !u!1 &415848635
 GameObject:
   m_ObjectHideFlags: 1
@@ -15508,7 +15507,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d43f24cb7f42340c1963e5288532895d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveConveyerBelts: {fileID: 0}
+  _conveyerBelts: {fileID: 0}
   menu: {fileID: 276589385}
 --- !u!1 &1092786985
 GameObject:
@@ -31356,6 +31355,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7287137020585607022, guid: 186741bf17cbb0e4fa3ef06daa1f190f, type: 3}
+      propertyPath: m_FirstSelected
+      value: 
+      objectReference: {fileID: 352316136}
     - target: {fileID: 7287137020755404942, guid: 186741bf17cbb0e4fa3ef06daa1f190f, type: 3}
       propertyPath: m_LocalPosition.y
       value: 1.6
