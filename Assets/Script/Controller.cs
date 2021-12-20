@@ -35,6 +35,15 @@ public partial class @Controller : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Up"",
+                    ""type"": ""Button"",
+                    ""id"": ""468169af-4c1d-4cea-aa6b-addfe9c7397c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -46,6 +55,17 @@ public partial class @Controller : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""DisableMenu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d51c884d-6550-454c-9d32-8ff779b7e2a5"",
+                    ""path"": ""<Gamepad>/dpad/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Up"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -65,9 +85,36 @@ public partial class @Controller : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""InsertNewNode"",
+                    ""name"": ""SelectPointer"",
                     ""type"": ""Button"",
                     ""id"": ""af2bcb20-28ff-47eb-9771-60f3f45d0296"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""NextPointer"",
+                    ""type"": ""Button"",
+                    ""id"": ""4b71d825-2148-4c1d-a919-fc99e7e70aeb"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""BackPointer"",
+                    ""type"": ""Button"",
+                    ""id"": ""afeccce2-9f61-4039-bee4-df44b7e9200e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""TestInsert"",
+                    ""type"": ""Button"",
+                    ""id"": ""5e4ec871-4c7a-4565-8c49-140927903f00"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -93,7 +140,40 @@ public partial class @Controller : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""InsertNewNode"",
+                    ""action"": ""SelectPointer"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""bc822080-1172-40e6-921b-85eac9030860"",
+                    ""path"": ""<Gamepad>/dpad/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""NextPointer"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""51a58f47-0842-4206-9390-c301fdee00b2"",
+                    ""path"": ""<Gamepad>/dpad/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""BackPointer"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6770d529-0e96-457a-9bbb-9e0d4149ddf5"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""TestInsert"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -105,10 +185,14 @@ public partial class @Controller : IInputActionCollection2, IDisposable
         // Menu
         m_Menu = asset.FindActionMap("Menu", throwIfNotFound: true);
         m_Menu_DisableMenu = m_Menu.FindAction("DisableMenu", throwIfNotFound: true);
+        m_Menu_Up = m_Menu.FindAction("Up", throwIfNotFound: true);
         // MainScene
         m_MainScene = asset.FindActionMap("MainScene", throwIfNotFound: true);
         m_MainScene_EnableMenu = m_MainScene.FindAction("EnableMenu", throwIfNotFound: true);
-        m_MainScene_InsertNewNode = m_MainScene.FindAction("InsertNewNode", throwIfNotFound: true);
+        m_MainScene_SelectPointer = m_MainScene.FindAction("SelectPointer", throwIfNotFound: true);
+        m_MainScene_NextPointer = m_MainScene.FindAction("NextPointer", throwIfNotFound: true);
+        m_MainScene_BackPointer = m_MainScene.FindAction("BackPointer", throwIfNotFound: true);
+        m_MainScene_TestInsert = m_MainScene.FindAction("TestInsert", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -169,11 +253,13 @@ public partial class @Controller : IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Menu;
     private IMenuActions m_MenuActionsCallbackInterface;
     private readonly InputAction m_Menu_DisableMenu;
+    private readonly InputAction m_Menu_Up;
     public struct MenuActions
     {
         private @Controller m_Wrapper;
         public MenuActions(@Controller wrapper) { m_Wrapper = wrapper; }
         public InputAction @DisableMenu => m_Wrapper.m_Menu_DisableMenu;
+        public InputAction @Up => m_Wrapper.m_Menu_Up;
         public InputActionMap Get() { return m_Wrapper.m_Menu; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -186,6 +272,9 @@ public partial class @Controller : IInputActionCollection2, IDisposable
                 @DisableMenu.started -= m_Wrapper.m_MenuActionsCallbackInterface.OnDisableMenu;
                 @DisableMenu.performed -= m_Wrapper.m_MenuActionsCallbackInterface.OnDisableMenu;
                 @DisableMenu.canceled -= m_Wrapper.m_MenuActionsCallbackInterface.OnDisableMenu;
+                @Up.started -= m_Wrapper.m_MenuActionsCallbackInterface.OnUp;
+                @Up.performed -= m_Wrapper.m_MenuActionsCallbackInterface.OnUp;
+                @Up.canceled -= m_Wrapper.m_MenuActionsCallbackInterface.OnUp;
             }
             m_Wrapper.m_MenuActionsCallbackInterface = instance;
             if (instance != null)
@@ -193,6 +282,9 @@ public partial class @Controller : IInputActionCollection2, IDisposable
                 @DisableMenu.started += instance.OnDisableMenu;
                 @DisableMenu.performed += instance.OnDisableMenu;
                 @DisableMenu.canceled += instance.OnDisableMenu;
+                @Up.started += instance.OnUp;
+                @Up.performed += instance.OnUp;
+                @Up.canceled += instance.OnUp;
             }
         }
     }
@@ -202,13 +294,19 @@ public partial class @Controller : IInputActionCollection2, IDisposable
     private readonly InputActionMap m_MainScene;
     private IMainSceneActions m_MainSceneActionsCallbackInterface;
     private readonly InputAction m_MainScene_EnableMenu;
-    private readonly InputAction m_MainScene_InsertNewNode;
+    private readonly InputAction m_MainScene_SelectPointer;
+    private readonly InputAction m_MainScene_NextPointer;
+    private readonly InputAction m_MainScene_BackPointer;
+    private readonly InputAction m_MainScene_TestInsert;
     public struct MainSceneActions
     {
         private @Controller m_Wrapper;
         public MainSceneActions(@Controller wrapper) { m_Wrapper = wrapper; }
         public InputAction @EnableMenu => m_Wrapper.m_MainScene_EnableMenu;
-        public InputAction @InsertNewNode => m_Wrapper.m_MainScene_InsertNewNode;
+        public InputAction @SelectPointer => m_Wrapper.m_MainScene_SelectPointer;
+        public InputAction @NextPointer => m_Wrapper.m_MainScene_NextPointer;
+        public InputAction @BackPointer => m_Wrapper.m_MainScene_BackPointer;
+        public InputAction @TestInsert => m_Wrapper.m_MainScene_TestInsert;
         public InputActionMap Get() { return m_Wrapper.m_MainScene; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -221,9 +319,18 @@ public partial class @Controller : IInputActionCollection2, IDisposable
                 @EnableMenu.started -= m_Wrapper.m_MainSceneActionsCallbackInterface.OnEnableMenu;
                 @EnableMenu.performed -= m_Wrapper.m_MainSceneActionsCallbackInterface.OnEnableMenu;
                 @EnableMenu.canceled -= m_Wrapper.m_MainSceneActionsCallbackInterface.OnEnableMenu;
-                @InsertNewNode.started -= m_Wrapper.m_MainSceneActionsCallbackInterface.OnInsertNewNode;
-                @InsertNewNode.performed -= m_Wrapper.m_MainSceneActionsCallbackInterface.OnInsertNewNode;
-                @InsertNewNode.canceled -= m_Wrapper.m_MainSceneActionsCallbackInterface.OnInsertNewNode;
+                @SelectPointer.started -= m_Wrapper.m_MainSceneActionsCallbackInterface.OnSelectPointer;
+                @SelectPointer.performed -= m_Wrapper.m_MainSceneActionsCallbackInterface.OnSelectPointer;
+                @SelectPointer.canceled -= m_Wrapper.m_MainSceneActionsCallbackInterface.OnSelectPointer;
+                @NextPointer.started -= m_Wrapper.m_MainSceneActionsCallbackInterface.OnNextPointer;
+                @NextPointer.performed -= m_Wrapper.m_MainSceneActionsCallbackInterface.OnNextPointer;
+                @NextPointer.canceled -= m_Wrapper.m_MainSceneActionsCallbackInterface.OnNextPointer;
+                @BackPointer.started -= m_Wrapper.m_MainSceneActionsCallbackInterface.OnBackPointer;
+                @BackPointer.performed -= m_Wrapper.m_MainSceneActionsCallbackInterface.OnBackPointer;
+                @BackPointer.canceled -= m_Wrapper.m_MainSceneActionsCallbackInterface.OnBackPointer;
+                @TestInsert.started -= m_Wrapper.m_MainSceneActionsCallbackInterface.OnTestInsert;
+                @TestInsert.performed -= m_Wrapper.m_MainSceneActionsCallbackInterface.OnTestInsert;
+                @TestInsert.canceled -= m_Wrapper.m_MainSceneActionsCallbackInterface.OnTestInsert;
             }
             m_Wrapper.m_MainSceneActionsCallbackInterface = instance;
             if (instance != null)
@@ -231,9 +338,18 @@ public partial class @Controller : IInputActionCollection2, IDisposable
                 @EnableMenu.started += instance.OnEnableMenu;
                 @EnableMenu.performed += instance.OnEnableMenu;
                 @EnableMenu.canceled += instance.OnEnableMenu;
-                @InsertNewNode.started += instance.OnInsertNewNode;
-                @InsertNewNode.performed += instance.OnInsertNewNode;
-                @InsertNewNode.canceled += instance.OnInsertNewNode;
+                @SelectPointer.started += instance.OnSelectPointer;
+                @SelectPointer.performed += instance.OnSelectPointer;
+                @SelectPointer.canceled += instance.OnSelectPointer;
+                @NextPointer.started += instance.OnNextPointer;
+                @NextPointer.performed += instance.OnNextPointer;
+                @NextPointer.canceled += instance.OnNextPointer;
+                @BackPointer.started += instance.OnBackPointer;
+                @BackPointer.performed += instance.OnBackPointer;
+                @BackPointer.canceled += instance.OnBackPointer;
+                @TestInsert.started += instance.OnTestInsert;
+                @TestInsert.performed += instance.OnTestInsert;
+                @TestInsert.canceled += instance.OnTestInsert;
             }
         }
     }
@@ -241,10 +357,14 @@ public partial class @Controller : IInputActionCollection2, IDisposable
     public interface IMenuActions
     {
         void OnDisableMenu(InputAction.CallbackContext context);
+        void OnUp(InputAction.CallbackContext context);
     }
     public interface IMainSceneActions
     {
         void OnEnableMenu(InputAction.CallbackContext context);
-        void OnInsertNewNode(InputAction.CallbackContext context);
+        void OnSelectPointer(InputAction.CallbackContext context);
+        void OnNextPointer(InputAction.CallbackContext context);
+        void OnBackPointer(InputAction.CallbackContext context);
+        void OnTestInsert(InputAction.CallbackContext context);
     }
 }

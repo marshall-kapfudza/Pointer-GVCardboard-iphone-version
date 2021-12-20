@@ -39,7 +39,7 @@ public class NodeSpawner : MonoBehaviour
         _conveyorBelt.ChangeConveyorBeltState(ConveyorDirection.LEFT);
         _spawnManager.SpawnNode(transform.position, transform.rotation);
         _isSpawning = true;
-
+        
     }
 
     public void NodeConnect()

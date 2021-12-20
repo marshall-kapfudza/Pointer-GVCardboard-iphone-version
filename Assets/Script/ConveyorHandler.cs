@@ -5,21 +5,23 @@ using System;
 
 public class ConveyorHandler : MonoBehaviour
 {
-    
+    public static ConveyorHandler Instance;
+    private NodeController currentPointer;
     public List<NodeDetection> Belts { get; private set; }
     public bool isBeltOn { get; private set; }
-    public int insert = 0;
     private Coroutine DropNodeCoroutine;
-    Rigidbody NI_RigidBody;
+    private Rigidbody NI_RigidBody;
 
 
     private void Awake()
     {
+        Instance = this;
         Belts = new List<NodeDetection>();
     }
 
     private void Start()
     {
+        
         isBeltOn = false;
         NodeDetection belt;
         foreach(Transform child in transform)
@@ -32,16 +34,19 @@ public class ConveyorHandler : MonoBehaviour
         ChangeConveyorBeltState(ConveyorDirection.LEFT);
         DropNodeCoroutine = StartCoroutine(DropNode());
         NI_RigidBody = null;
+        currentPointer = null;
 
     }
     private void Update()
     {
+        
         if (!isBeltOn) return;
         if(NodeDetection.NodesOnConveyor == ObjectPool.ActivePool)
         {
             ChangeConveyorBeltState(ConveyorDirection.STOP);
             isBeltOn = false;
         }
+
     }
 
     public bool Empty()
@@ -96,6 +101,35 @@ public class ConveyorHandler : MonoBehaviour
         }
     }
 
+    public void HighlightRightNode()
+    {
+        
+    }
+
+    public void HighlightLeftNode()
+    {
+        
+    }
+
+    public void SelectNode()
+    {
+        if(currentPointer != null)
+        currentPointer.OnSelect();
+    }
+
+    public int FindCurrent()
+    {
+        return Belts.FindIndex(node => node == currentPointer);
+    }
+    public void ResetCurrentPointer()
+    {
+        if (currentPointer != null)
+        {
+            if(currentPointer.IsSelected)
+                SelectNode();
+        }
+        currentPointer = Belts[0].Node;
+    }
     //remove node at current node and shift nodes to the left
     public void RemoveNode()
     {
