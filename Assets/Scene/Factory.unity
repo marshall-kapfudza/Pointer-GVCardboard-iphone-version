@@ -3971,6 +3971,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menuFirstButton: {fileID: 352316136}
+  currentSelection: {fileID: 0}
 --- !u!1 &282072750
 GameObject:
   m_ObjectHideFlags: 0
@@ -5338,7 +5339,7 @@ MonoBehaviour:
   m_Navigation:
     m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
+    m_SelectOnUp: {fileID: 1521688134}
     m_SelectOnDown: {fileID: 407189562}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
@@ -22175,7 +22176,7 @@ MonoBehaviour:
     m_Mode: 4
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 407189562}
-    m_SelectOnDown: {fileID: 0}
+    m_SelectOnDown: {fileID: 352316138}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 3
@@ -31358,7 +31359,7 @@ PrefabInstance:
     - target: {fileID: 7287137020585607022, guid: 186741bf17cbb0e4fa3ef06daa1f190f, type: 3}
       propertyPath: m_FirstSelected
       value: 
-      objectReference: {fileID: 352316136}
+      objectReference: {fileID: 0}
     - target: {fileID: 7287137020755404942, guid: 186741bf17cbb0e4fa3ef06daa1f190f, type: 3}
       propertyPath: m_LocalPosition.y
       value: 1.6

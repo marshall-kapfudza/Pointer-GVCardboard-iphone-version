@@ -14,7 +14,6 @@ public class UIMenu : MonoBehaviour
     private void Awake()
     {
         currentSelection = menuFirstButton.GetComponent<Selectable>();
-        
     }
     public void MenuDisplay()
     {
@@ -42,8 +41,18 @@ public class UIMenu : MonoBehaviour
     {
         currentSelection = currentSelection.FindSelectableOnDown();
         currentSelection.Select();
-        
     }
-    
-    
+
+    public void MoveUp()
+    {
+        currentSelection = currentSelection.FindSelectableOnUp();
+        currentSelection.Select();
+    }
+    public void Click()
+    {
+        currentSelection.animator.SetTrigger("Pressed");
+        currentSelection.gameObject.GetComponent<Button>().onClick.Invoke();
+    }
+
+
 }
