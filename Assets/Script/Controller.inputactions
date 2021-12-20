@@ -15,7 +15,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Up",
+                    "name": "Down",
                     "type": "Button",
                     "id": "468169af-4c1d-4cea-aa6b-addfe9c7397c",
                     "expectedControlType": "Button",
@@ -39,11 +39,11 @@
                 {
                     "name": "",
                     "id": "d51c884d-6550-454c-9d32-8ff779b7e2a5",
-                    "path": "<Gamepad>/dpad/up",
+                    "path": "<Gamepad>/dpad/down",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Up",
+                    "action": "Down",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

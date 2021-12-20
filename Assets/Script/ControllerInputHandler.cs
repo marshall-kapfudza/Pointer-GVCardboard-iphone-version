@@ -36,6 +36,7 @@ public class ControllerInputHandler : MonoBehaviour
 
         controller.MainScene.TestInsert.performed += ctx => _nodeSpawner.CreateNewNode();
         disableMenu.performed += ctx => DisableMenu();
+        controller.Menu.Down.performed += ctx => menu.MoveDown();
         
     }
     private void Start()

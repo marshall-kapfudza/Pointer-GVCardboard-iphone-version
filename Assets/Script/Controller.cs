@@ -37,7 +37,7 @@ public partial class @Controller : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Up"",
+                    ""name"": ""Down"",
                     ""type"": ""Button"",
                     ""id"": ""468169af-4c1d-4cea-aa6b-addfe9c7397c"",
                     ""expectedControlType"": ""Button"",
@@ -61,11 +61,11 @@ public partial class @Controller : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""d51c884d-6550-454c-9d32-8ff779b7e2a5"",
-                    ""path"": ""<Gamepad>/dpad/up"",
+                    ""path"": ""<Gamepad>/dpad/down"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Up"",
+                    ""action"": ""Down"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -185,7 +185,7 @@ public partial class @Controller : IInputActionCollection2, IDisposable
         // Menu
         m_Menu = asset.FindActionMap("Menu", throwIfNotFound: true);
         m_Menu_DisableMenu = m_Menu.FindAction("DisableMenu", throwIfNotFound: true);
-        m_Menu_Up = m_Menu.FindAction("Up", throwIfNotFound: true);
+        m_Menu_Down = m_Menu.FindAction("Down", throwIfNotFound: true);
         // MainScene
         m_MainScene = asset.FindActionMap("MainScene", throwIfNotFound: true);
         m_MainScene_EnableMenu = m_MainScene.FindAction("EnableMenu", throwIfNotFound: true);
@@ -253,13 +253,13 @@ public partial class @Controller : IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Menu;
     private IMenuActions m_MenuActionsCallbackInterface;
     private readonly InputAction m_Menu_DisableMenu;
-    private readonly InputAction m_Menu_Up;
+    private readonly InputAction m_Menu_Down;
     public struct MenuActions
     {
         private @Controller m_Wrapper;
         public MenuActions(@Controller wrapper) { m_Wrapper = wrapper; }
         public InputAction @DisableMenu => m_Wrapper.m_Menu_DisableMenu;
-        public InputAction @Up => m_Wrapper.m_Menu_Up;
+        public InputAction @Down => m_Wrapper.m_Menu_Down;
         public InputActionMap Get() { return m_Wrapper.m_Menu; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -272,9 +272,9 @@ public partial class @Controller : IInputActionCollection2, IDisposable
                 @DisableMenu.started -= m_Wrapper.m_MenuActionsCallbackInterface.OnDisableMenu;
                 @DisableMenu.performed -= m_Wrapper.m_MenuActionsCallbackInterface.OnDisableMenu;
                 @DisableMenu.canceled -= m_Wrapper.m_MenuActionsCallbackInterface.OnDisableMenu;
-                @Up.started -= m_Wrapper.m_MenuActionsCallbackInterface.OnUp;
-                @Up.performed -= m_Wrapper.m_MenuActionsCallbackInterface.OnUp;
-                @Up.canceled -= m_Wrapper.m_MenuActionsCallbackInterface.OnUp;
+                @Down.started -= m_Wrapper.m_MenuActionsCallbackInterface.OnDown;
+                @Down.performed -= m_Wrapper.m_MenuActionsCallbackInterface.OnDown;
+                @Down.canceled -= m_Wrapper.m_MenuActionsCallbackInterface.OnDown;
             }
             m_Wrapper.m_MenuActionsCallbackInterface = instance;
             if (instance != null)
@@ -282,9 +282,9 @@ public partial class @Controller : IInputActionCollection2, IDisposable
                 @DisableMenu.started += instance.OnDisableMenu;
                 @DisableMenu.performed += instance.OnDisableMenu;
                 @DisableMenu.canceled += instance.OnDisableMenu;
-                @Up.started += instance.OnUp;
-                @Up.performed += instance.OnUp;
-                @Up.canceled += instance.OnUp;
+                @Down.started += instance.OnDown;
+                @Down.performed += instance.OnDown;
+                @Down.canceled += instance.OnDown;
             }
         }
     }
@@ -357,7 +357,7 @@ public partial class @Controller : IInputActionCollection2, IDisposable
     public interface IMenuActions
     {
         void OnDisableMenu(InputAction.CallbackContext context);
-        void OnUp(InputAction.CallbackContext context);
+        void OnDown(InputAction.CallbackContext context);
     }
     public interface IMainSceneActions
     {
