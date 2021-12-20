@@ -11,11 +11,7 @@ public class ConveyorHandler : MonoBehaviour
     private Coroutine DropNodeCoroutine;
     Rigidbody NI_RigidBody;
 
-    [ContextMenu("Insert node")]
-    public void test()
-    {
-        InsertNode(insert);
-    }
+
     private void Awake()
     {
         Belts = new List<NodeDetection>();
@@ -71,11 +67,11 @@ public class ConveyorHandler : MonoBehaviour
    
     [ContextMenu("Insert Node")]
     //shift nodes right and insert the node at the currentNode;
-    public void InsertNode(int insertion)
+    public void InsertNode()
     {
         
-        if (Belts[insertion].Node == null) return;
-        NodeDetection nodeDetection = Belts[insertion];
+        if (Belts[0].Node == null) return;
+        NodeDetection nodeDetection = Belts[0];
         Vector3 postionToSpawnNode = nodeDetection.transform.position;
         Quaternion rotationToSpawnNode = nodeDetection.transform.rotation;
         Vector3 offset = new Vector3(0, 3, 0);
@@ -95,9 +91,7 @@ public class ConveyorHandler : MonoBehaviour
             yield return new WaitUntil(() => NI_RigidBody != null);
             yield return new WaitForSeconds(2f);
             NI_RigidBody.useGravity = true;
-            NI_RigidBody = null;
-
-            
+            NI_RigidBody = null;  
         }
     }
 
