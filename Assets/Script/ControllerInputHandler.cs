@@ -1,17 +1,26 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.InputSystem.Controls;
 
 public class ControllerInputHandler : MonoBehaviour
 {
     [SerializeField]
     ConveyorHandler MoveConveyerBelts;
     NodeSpawner createANode;
+    UIMenu Menu;
+    private Controller controller;
+
+    private void Awake()
+    {
+        controller = new Controller();
+
+        controller.MainScene.ShowMenu.performed += ctx => Menu.MenuDisplay();
+    }
 
     private void Start()
     {
         MoveConveyerBelts = GameObject.FindGameObjectWithTag("Convayor").GetComponent<ConveyorHandler>();
         createANode = GameObject.FindGameObjectWithTag("NodeSpawner").GetComponent<NodeSpawner>();
+        Menu = GameObject.FindGameObjectWithTag("Menu").GetComponent<UIMenu>();
     }
     public void ExcuteInput(Gamepad Controller)
     {
@@ -33,8 +42,10 @@ public class ControllerInputHandler : MonoBehaviour
             createANode.CreateNewNode();
         }
 
+        if (Controller.dpad.right.isPressed)
+        {
+            Menu.MenuDisplay();
+        }
+
     }
-
-    
-
 }
