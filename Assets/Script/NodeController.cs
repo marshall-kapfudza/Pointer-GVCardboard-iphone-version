@@ -37,7 +37,6 @@ public class NodeController : MonoBehaviour
         if (CableFront.HasEndPoint) return;
         CableFront.SetEndPoint(Other.ConnectionEndPoint);
         CableFront.gameObject.SetActive(true);
-        this.GetComponent<Animator>().Play
     }
 
     public void RemoveCable()
