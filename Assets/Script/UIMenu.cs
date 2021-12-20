@@ -1,8 +1,9 @@
-using UnityEngine.UI;
+using UnityEngine.EventSystems;
 using UnityEngine;
 
 public class UIMenu : MonoBehaviour
 {
+    public GameObject menuFirstButton;
     private bool isMenuHidden = false;
 
     public void MenuDisplay()
@@ -10,6 +11,7 @@ public class UIMenu : MonoBehaviour
         isMenuHidden = !isMenuHidden;
         this.gameObject.SetActive(isMenuHidden);
     }
+
     public void MenuInsertNode()
     {
        
@@ -20,11 +22,11 @@ public class UIMenu : MonoBehaviour
 
     }
 
-    public void ExitMenu()
+    public void MoveUpDown()
     {
-        Debug.Log("QUIT");
-        Application.Quit();
-    }
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(menuFirstButton);
 
+    }
 
 }
