@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class NodeController : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class NodeController : MonoBehaviour
     private Material Outline;
     private Renderer _myRenderer;
     public bool IsSelected { get; private set; }
+    public Text addressLabel;
 
 
     [field: SerializeField]
@@ -31,6 +33,8 @@ public class NodeController : MonoBehaviour
         if (!CableFront.HasEndPoint) return;
         Debug.Log("Drawing endpoint");
         CableFront.DrawCable();
+        Vector3 addressPos = Camera.main.WorldToScreenPoint(this.transform.position);
+        addressLabel.transform.position = addressPos;
     }
     public void ConnectCable(NodeController Other)
     {
