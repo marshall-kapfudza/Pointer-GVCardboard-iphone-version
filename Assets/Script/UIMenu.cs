@@ -5,8 +5,7 @@ using UnityEngine.UI;
 
 public class UIMenu : MonoBehaviour
 {
-    //public int currentSelection = 0;
-    //public GameObject[] buttons;
+
     public GameObject menuFirstButton;
     private bool isMenuHidden = false;
 
@@ -19,16 +18,6 @@ public class UIMenu : MonoBehaviour
     {
         isMenuHidden = !isMenuHidden;
         this.gameObject.SetActive(isMenuHidden);
-    }
-
-    public void MenuInsertNode()
-    {
-
-    }
-
-    public void MenuDeleteNode()
-    {
-
     }
 
     public void Move()

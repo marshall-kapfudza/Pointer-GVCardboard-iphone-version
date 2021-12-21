@@ -1,7 +1,7 @@
 using UnityEngine;
 using PCS;
 
-public class NodeDetection : MonoBehaviour
+public class NodeTracker : MonoBehaviour
 {
     [field: SerializeField]
     public  NodeController Node { get; private set; }

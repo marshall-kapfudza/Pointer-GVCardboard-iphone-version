@@ -24,7 +24,7 @@ public class CoroutineSpawnNodeManager : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
         _node = ObjectPool.Instance.SpawnFromPool("Node", transform, rotation);
-        yield return new WaitUntil(() => NodeDetection.NodesOnConveyor == ObjectPool.ActivePool);
+        yield return new WaitUntil(() => NodeTracker.NodesOnConveyor == ObjectPool.ActivePool);
         ConveyorHandler.Instance.ResetCurrentPointer();
     }
 
