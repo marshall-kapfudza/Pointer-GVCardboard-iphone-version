@@ -30,7 +30,7 @@ public class NodeController : MonoBehaviour
     private void Update()
     {
         if (!CableFront.HasEndPoint) return;
-        Debug.Log("Drawing endpoint");
+        //Debug.Log("Drawing endpoint");
         CableFront.DrawCable();
     }
     public void ConnectCable(NodeController Other)
