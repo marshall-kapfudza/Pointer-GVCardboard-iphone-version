@@ -10,7 +10,7 @@ public class NodeSpawner : MonoBehaviour
     private CoroutineSpawnNodeManager _spawnManager;
     private ConveyorHandler _conveyorBelt;
     private bool _isSpawning;
-    private NodeDetection _firstBelt;
+    private NodeTracker _firstBelt;
     private Coroutine CableConnecter;
     void Start()
     {
@@ -34,8 +34,8 @@ public class NodeSpawner : MonoBehaviour
 
     public void CreateNewNode()
     {
-        if (_isSpawning || NodeDetection.NodesOnConveyor != ObjectPool.ActivePool) return;
-        NodeDetection.ResetActiveNodes();
+        if (_isSpawning || NodeTracker.NodesOnConveyor != ObjectPool.ActivePool) return;
+        NodeTracker.ResetActiveNodes();
         _conveyorBelt.ChangeConveyorBeltState(ConveyorDirection.LEFT);
         _spawnManager.SpawnNode(transform.position, transform.rotation);
         _isSpawning = true;
@@ -53,7 +53,7 @@ public class NodeSpawner : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitUntil(() => NodeDetection.NodesOnConveyor == ObjectPool.ActivePool);
+            yield return new WaitUntil(() => NodeTracker.NodesOnConveyor == ObjectPool.ActivePool);
             NodeConnect();
         }
     }

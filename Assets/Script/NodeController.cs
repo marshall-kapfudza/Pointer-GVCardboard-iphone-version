@@ -9,20 +9,20 @@ public class NodeController : MonoBehaviour
     private Material Box_Mat;
     [SerializeField]
     private Material Outline;
-    private Renderer _myRenderer;
+    private Renderer _NodeRenderer;
     public bool IsSelected { get; private set; }
 
 
     [field: SerializeField]
     public CableStatic CableFront { get; private set; }
     [field: SerializeField]
-    public GameObject ConnectionEndPoint { get; private set; }
+    public GameObject CableEndPoint { get; private set; }
 
     private void Start()
     {
         IsSelected = false;
-        _myRenderer = GetComponent<Renderer>();
-        ConnectionEndPoint = transform.GetChild(1).gameObject;
+        _NodeRenderer = GetComponent<Renderer>();
+        CableEndPoint = transform.GetChild(1).gameObject;
         CableFront = transform.GetChild(0).gameObject.GetComponent<CableStatic>();
         CableFront.gameObject.SetActive(false);
     }
@@ -35,7 +35,7 @@ public class NodeController : MonoBehaviour
     public void ConnectCable(NodeController Other)
     {
         if (CableFront.HasEndPoint) return;
-        CableFront.SetEndPoint(Other.ConnectionEndPoint);
+        CableFront.SetEndPoint(Other.CableEndPoint);
         CableFront.gameObject.SetActive(true);
     }
 
@@ -54,7 +54,7 @@ public class NodeController : MonoBehaviour
     {
         if (Box_Mat != null && Outline != null)
         {
-            _myRenderer.material = gazedAt ?  Outline : Box_Mat;
+            _NodeRenderer.material = gazedAt ?  Outline : Box_Mat;
         }
     }
 }

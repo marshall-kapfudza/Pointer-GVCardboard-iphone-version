@@ -62,7 +62,7 @@ public class ObjectPool : MonoBehaviour
         ActivePool++;
         return spawnObject;
     }
-    public void DeSpawnObject(GameObject other)
+    public void DespawnObject(GameObject other)
     {
         other.SetActive(false);
         ActivePool--;
