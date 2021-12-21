@@ -387,7 +387,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Box_Mat: {fileID: 2100000, guid: d96c00bc610fc6348b82be0ff98d28e2, type: 2}
   Outline: {fileID: 2100000, guid: 9b3f0240cd9844f5a98fad62184c09dd, type: 2}
-  addressLabel: {fileID: 0}
   <CableFront>k__BackingField: {fileID: 0}
   <ConnectionEndPoint>k__BackingField: {fileID: 0}
 --- !u!1 &5708661687854866423
@@ -447,6 +446,7 @@ GameObject:
   - component: {fileID: 3725904987577719431}
   - component: {fileID: 816552259783413278}
   - component: {fileID: 2582313048596588502}
+  - component: {fileID: 4273755921163003376}
   m_Layer: 5
   m_Name: Address
   m_TagString: Untagged
@@ -571,3 +571,16 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &4273755921163003376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9016413377227151279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08053154974b84760b91a464f9c300c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisAddress: {fileID: 0}
