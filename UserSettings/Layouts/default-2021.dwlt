@@ -144,7 +144,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 15
+  controlID: 27
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -169,7 +169,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 1
-  controlID: 16
+  controlID: 28
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -195,7 +195,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 8096}
   vertical: 0
-  controlID: 17
+  controlID: 29
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -242,8 +242,8 @@ MonoBehaviour:
     y: 0
     width: 564
     height: 617
-  m_MinSize: {x: 275, y: 100}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 276, y: 121}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 17}
   m_Panes:
   - {fileID: 17}
@@ -307,7 +307,7 @@ MonoBehaviour:
     m_SaveData: []
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 21728
+  m_LastSelectedObjectID: 24204
 --- !u!114 &13
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -367,9 +367,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 4a5e0000
-      m_LastClickedID: 24138
-      m_ExpandedIDs: 16f4ffff
+      m_SelectedIDs: 8c5e0000
+      m_LastClickedID: 24204
+      m_ExpandedIDs: 02f3ffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -618,9 +618,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 0, y: 0.515, z: 1.5}
+    m_Target: {x: 1.116432, y: 1.778285, z: -1.2168505}
     speed: 2
-    m_Value: {x: 0, y: 0.515, z: 1.5}
+    m_Value: {x: 1.116432, y: 1.778285, z: -1.2168505}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -667,17 +667,17 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.22489956, y: 0.6197438, z: -0.19170934, w: 0.7270398}
+    m_Target: {x: 0.08449343, y: 0.6714453, z: -0.07748902, w: 0.7321366}
     speed: 2
-    m_Value: {x: 0.2248994, y: 0.6197434, z: -0.1917092, w: 0.7270393}
+    m_Value: {x: 0.08449315, y: 0.67144316, z: -0.07748877, w: 0.7321342}
   m_Size:
-    m_Target: 1.5811388
+    m_Target: 0.9785742
     speed: 2
-    m_Value: 1.5811388
+    m_Value: 0.9785742
   m_Ortho:
-    m_Target: 0
+    m_Target: 1
     speed: 2
-    m_Value: 0
+    m_Value: 1
   m_CameraSettings:
     m_Speed: 1
     m_SpeedNormalized: 0.5
@@ -874,22 +874,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Prefab
+    - Assets/Script
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Prefab
+  - Assets/Script
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Git\Pointer-GVCardboard-iphone-version
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: dc5d0000
-    m_LastClickedID: 24028
-    m_ExpandedIDs: 000000002c5d00002e5d0000305d0000325d0000345d0000365d0000385d00003a5d0000d65d0000
+    m_SelectedIDs: 185e0000
+    m_LastClickedID: 24088
+    m_ExpandedIDs: 00000000645d0000665d0000685d00006a5d00006c5d00006e5d0000705d0000725d00000e5e0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -917,7 +917,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000002c5d00002e5d0000305d0000325d0000345d0000365d0000385d00003a5d0000
+    m_ExpandedIDs: 00000000645d0000665d0000685d00006a5d00006c5d00006e5d0000705d0000725d0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 

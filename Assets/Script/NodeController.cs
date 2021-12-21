@@ -51,6 +51,16 @@ public class NodeController : MonoBehaviour
         SetMaterial(IsSelected);
     }
 
+    public void OnHover()
+    {
+        SetMaterial(true);
+    }
+
+    public void OnExit()
+    {
+        if (IsSelected) return;
+        SetMaterial(false);
+    }
     private void SetMaterial(bool gazedAt)
     {
         if (Box_Mat != null && Outline != null)
@@ -58,4 +68,6 @@ public class NodeController : MonoBehaviour
             _NodeRenderer.material = gazedAt ?  Outline : Box_Mat;
         }
     }
+
+
 }
