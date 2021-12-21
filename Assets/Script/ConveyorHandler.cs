@@ -6,27 +6,29 @@ using System;
 public class ConveyorHandler : MonoBehaviour
 {
     public static ConveyorHandler Instance;
+
     private NodeController currentPointer;
-    public List<NodeDetection> Belts { get; private set; }
-    public bool isBeltOn { get; private set; }
     private Coroutine DropNodeCoroutine;
     private Rigidbody NI_RigidBody;
+    public List<NodeTracker> Belts { get; private set; }
+    public bool isBeltOn { get; private set; }
+    
 
 
     private void Awake()
     {
         Instance = this;
-        Belts = new List<NodeDetection>();
+        Belts = new List<NodeTracker>();
     }
 
     private void Start()
     {
         
         isBeltOn = false;
-        NodeDetection belt;
+        NodeTracker belt;
         foreach(Transform child in transform)
         {
-            belt = child.GetComponentInChildren<NodeDetection>();
+            belt = child.GetComponentInChildren<NodeTracker>();
             if (belt != null)
                 Belts.Add(belt);
         }
@@ -41,7 +43,7 @@ public class ConveyorHandler : MonoBehaviour
     {
         
         if (!isBeltOn) return;
-        if(NodeDetection.NodesOnConveyor == ObjectPool.ActivePool)
+        if(NodeTracker.NodesOnConveyor == ObjectPool.ActivePool)
         {
             ChangeConveyorBeltState(ConveyorDirection.STOP);
             isBeltOn = false;
@@ -53,7 +55,7 @@ public class ConveyorHandler : MonoBehaviour
     {
         bool isConveyorBeltEmpty = true;
 
-        foreach(NodeDetection belt in Belts)
+        foreach(NodeTracker belt in Belts)
         {
             if (belt.Node != null)
                 return !isConveyorBeltEmpty;
@@ -77,13 +79,13 @@ public class ConveyorHandler : MonoBehaviour
     {
         
         if (Belts[0].Node == null) return;
-        NodeDetection nodeDetection = Belts[0];
+        NodeTracker nodeDetection = Belts[0];
         Vector3 postionToSpawnNode = nodeDetection.transform.position;
         Quaternion rotationToSpawnNode = nodeDetection.transform.rotation;
         Vector3 offset = new Vector3(0, 3, 0);
         postionToSpawnNode = postionToSpawnNode + offset;
         var nodeToInsert = ObjectPool.Instance.SpawnFromPool("Node", postionToSpawnNode, rotationToSpawnNode);
-        NodeDetection.ResetActiveNodes();
+        NodeTracker.ResetActiveNodes();
         ChangeConveyorBeltState(ConveyorDirection.LEFT);
         NI_RigidBody = nodeToInsert.GetComponent<Rigidbody>();
         NI_RigidBody.useGravity = false;
